@@ -1,0 +1,3 @@
+select * from emp;
+update emp set empno = '123';
+insert into emp values('er','we','qw',);

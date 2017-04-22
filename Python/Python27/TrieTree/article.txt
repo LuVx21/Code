@@ -1,0 +1,67 @@
+9 Mac OS X Port Command Examples to Install and Update Packages
+
+by Sanjay Kumar, thegeekstuff.comJanuary 23
+Port is a terminal command utility which is used to update open source software on Mac OS X.
+
+The port command is bundled as part of MacPorts Framework.
+
+You can install port command either by downloading and installing the binary version for your corresponding Mac OS X, or by downloading the source code and compiling it on your OS X version.
+
+The binary file of MacPorts for various version of OSX are available here. Once you download the binary version, just click on the package to install it. You should have administrator right on your system to install it. X-code is pre-req for MacPorts. If you don’t have X-code on your system, it will display a warning message.
+
+Update Port List using selfupdate
+Immediately after you install the port command, you should update the available port list by doing a selfupdate as shown below.
+
+If you are behind the proxy, you need to add the following lines to /etc/sudoers file as sudoer before you perform selfupdate:
+
+Defaults env keep += "HTTP PROXY HTTPS PROXY FTP PROXY RSYNC PROXY"
+Defaults env keep += "ALL PROXY NO PROXY"
+Add the following lines to your .bashrc at your home folder to get port connect from behind a proxy
+
+2. Upgrade All Outdated Packages
+After selfupdate it will ask you to do port upgrade for all outdated installed ports. You can upgrade all outdated packages using “upgrade outdated” option as shown below.
+
+3. Search for a Specific Package
+You can search for a specific package by using a keyword. This will search for all available packages with the given keyword, and display the corresponding version number of the available packages also.
+
+The following will search and list all packages that contains the keyword “tmux” either in package name or description as shown below.
+
+4. Install a Specific Package
+On you searched for a specific package, you can install it using “install” option as shown below.
+
+When you install a package, it displays all the dependent packages, and install them one by one before installing the given package.
+
+The following will install tmux package. As shown below, it will also install the dependent package “libevent” first, before installing tmux.
+
+5. View Dependent Packages
+
+If you just want to view all the dependent packages before installing a package, you can do it using deps option as shown below.
+
+This is also helpful to view the dependencies of a package that is already installed.
+
+The following will display all the dependent packages for tmux. As you see below, tmux is dependent on libevent and ncurses packages.
+
+6. Uninstall a Package
+
+To uninstall a package, use the uninstall option as shown below. When you uninstall a package, it will not remove the dependencies, it will uninstall only the given package.
+
+The following will uninstall the htop package.
+
+7. Uninstall All Old Packages
+
+You can uninstall all old versions of the packages that are not being used now using the “uninstall inacative” option as shown below. Use the -f option also, which will force uninstall all inactive packages as shown below.
+
+8. Delete Downloads of Installed Packages
+
+When you install a package, it downloads the package and then installs it on your system. Once the package is installed, the downloaded file takes-up unnecessary disk space on your system. So, it is a good idea to delete all these downloaded packages once in a while using the “clean -all installed” option.
+
+The following will delete all downloaded packages that are used during installation, but not required anymore, as they are already installed.
+
+9. Delete Downloads of All Packages
+Sometimes you might’ve downloaded a package, but not installed it on your system yet. You can delete all downloads irrespective of whether they are already installed or not on your system using “clean -all all” option as shown below.
+
+The following will delete all downloaded packages (both installed and not-installed).
+
+Linux Sysadmin Course
+Linux provides several powerful administrative tools and utilities which will help you to manage your systems effectively. If you don’t know what these tools are and how to use them, you could be spending lot of time trying to perform even the basic administrative tasks. The focus of this course is to help you understand system administration tools, which will help you to become an effective Linux system administrator.
+Get the Now!
