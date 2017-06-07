@@ -15,7 +15,8 @@ def saveImage(imgUrl, imgName='default.jpg'):
     """保存图片到本地"""
     response = requests.get(imgUrl, stream=True)
     image = response.content
-    dst = 'F:\\api\\'
+    # dst = 'F:\\api\\'
+    dst = '/Users/renxie'
     path = dst + imgName
     print 'save the file:' + path
     with open(path, 'wb') as img:

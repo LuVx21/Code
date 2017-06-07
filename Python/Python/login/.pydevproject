@@ -5,5 +5,5 @@
 <value>login/manage.py</value>
 </pydev_variables_property>
 <pydev_property name="org.python.pydev.PYTHON_PROJECT_VERSION">python 3.0</pydev_property>
-<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">Python35</pydev_property>
+<pydev_property name="org.python.pydev.PYTHON_PROJECT_INTERPRETER">python3</pydev_property>
 </pydev_project>

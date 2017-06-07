@@ -17,9 +17,10 @@ r = r.json()
 def saveImage(imgUrl,imgName= 'default.jpg'):
     response = requests.get(imgUrl,stream = True)
     image = response.content
-#     dst = "f:\baidu_img"
-    dst = 'F:\\api\\'
-    path = dst+imgName
+    # dst = "f:\baidu_img"
+    # dst = 'F:\\api\\'
+    dst = '/Users/renxie/111/'
+    path = dst + imgName
     print 'save the file:'+path+'\n'
     with open(path,'wb') as img:
         img.write(image)
@@ -29,6 +30,6 @@ def run():
     for line in r['tngou']:
         title = line['title']
         img = line['img']
-        src_path = src_header+img
+        src_path = src_header + img
         saveImage(src_path,title+'.jpg')
 run()

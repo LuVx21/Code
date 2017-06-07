@@ -2,5 +2,12 @@
 
 import calendar
 
-print calendar.month(2016, 11)
 
+
+month = calendar.month(2017, 7)
+
+
+print type(month)
+
+print len(month)
+print month
