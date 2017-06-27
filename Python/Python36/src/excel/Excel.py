@@ -7,57 +7,8 @@ import xlutils
 import openpyxl
 import xlsxwriter
 
-# 1.xlrd主要是用来读取excel文件
 
-import xlrd
 
-workbook = xlrd.open_workbook(u'有趣装逼每日数据及趋势.xls')
-
-sheet_names= workbook.sheet_names()
-
-for sheet_name in sheet_names:
-
-　　 sheet2 = workbook.sheet_by_name(sheet_name)
-
-　　 print sheet_name rows = sheet2.row_values(3) # 获取第四行内容
-
-　　 cols = sheet2.col_values(1) # 获取第二列内容
-
-　　 print rows
-
-　　 print cols
-
- 
-
-# 2.xlwt主要是用来写excel文件
-
-import xlwt
-
-wbk = xlwt.Workbook()
-
-sheet = wbk.add_sheet('sheet 1')
-
-sheet.write(0,1,'test text')#第0行第一列写入内容
-
-wbk.save('test.xls')
-
- 
-
-# 3.xlutils结合xlrd可以达到修改excel文件目的
-
-import xlrd
-
-from xlutils.copy import copy
-
-workbook = xlrd.open_workbook(u'有趣装逼每日数据及趋势.xls')
-
-workbooknew = copy(workbook)
-
-ws = workbooknew.get_sheet(0)
-
-ws.write(3, 0, 'changed!')
-
-workbooknew.save(u'有趣装逼每日数据及趋势copy.xls')
 
  
 
@@ -93,7 +44,7 @@ ws['A1'] = 4
 
 wb.save("新歌检索失败.xlsx") 
 
-     
+'''  
 
 # 5.xlsxwriter可以写excel文件并加上图表
 
@@ -160,3 +111,4 @@ if __name__ == '__main__':
  
 
 openpyxl 
+'''

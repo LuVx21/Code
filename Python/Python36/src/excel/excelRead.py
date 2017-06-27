@@ -4,17 +4,19 @@
 
 import xlrd
 
-data = xlrd.open_workbook('1.xlsx')
+workbook = xlrd.open_workbook('1.xlsx')
 
+sheet_names = workbook.sheet_names()
+print(sheet_names)
 
 # 通过索引顺序获取
-# sheet = data.sheets()[0]
+# sheet = workbook.sheets()[0]
 
 # #通过索引顺序获取
-sheet = data.sheet_by_index(0)
+sheet = workbook.sheet_by_index(0)
 
 # #通过名称获取
-# sheet = data.sheet_by_name(u'Sheet1')
+# sheet = workbook.sheet_by_name(u'Sheet1')
 
 # A1	B1
 # A2	B2
