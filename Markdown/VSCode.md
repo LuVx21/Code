@@ -38,3 +38,33 @@ Alt+Shift+F即可自动格式化代码
 "showOutput": "always"
  ```
  * ctrl + shift + B 运行
+
+ ## 快捷键
+
+ ```
+ // 将键绑定放入此文件中以覆盖默认值
+[
+    // 删除当前行
+    { "key": "ctrl+l",          "command": "editor.action.deleteLines",
+                                     "when": "editorTextFocus && !editorReadonly" },
+    // --> 大写
+    { "key": "ctrl+u",          "command": "editor.action.transformToUppercase",v
+                                     "when": "editorTextFocus && !editorReadonly" },
+    // --> 小写
+    { "key": "ctrl+shift+u",          "command": "editor.action.transformToLowercase",
+                                     "when": "editorTextFocus && !editorReadonly" },
+    // 窗口切分
+    { "key": "f7",           "command": "workbench.action.toggleEditorGroupLayout" },
+    // { "key": "ctrl+\\",               "command": "workbench.action.splitEditor" }
+
+    // 向下移动当前行
+    { "key": "ctrl+shift+down",              "command": "editor.action.moveLinesDownAction",
+                                     "when": "editorTextFocus && !editorReadonly" },
+    // 向上移动当前行
+    { "key": "ctrl+shift+up",                "command": "editor.action.moveLinesUpAction",
+                                        "when": "editorTextFocus && !editorReadonly" },
+    // 跳转到下一相同处
+    { "key": "ctrl+k",         "command": "editor.action.moveSelectionToNextFindMatch",
+                                     "when": "editorFocus" }
+]
+ ```
