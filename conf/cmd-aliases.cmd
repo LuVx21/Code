@@ -2,9 +2,9 @@
 @doskey ls=dir /b $*
 @doskey l=dir /od/p/q/tw $*
 @doskey e.=explorer .
-@doskey ls1=ls --show-control-chars -F --color $*
 @doskey pwd=cd
 @doskey clear=cls
+
 @doskey g=git $1
 @doskey ga=git add $1
 @doskey ga.=git add .
