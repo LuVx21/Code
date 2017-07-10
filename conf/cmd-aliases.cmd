@@ -1,9 +1,21 @@
+@doskey c=cd /d C:
+@doskey d=cd /d D:
+@doskey s=cd /d E:
+@doskey s=cd /d F:
+
+
+@doskey cp=copy $*
+@doskey mv=move $*
+@doskey rm=del $*
+@doskey grep=findstr /n $*
+
+@doskey e.=explorer .
+@doskey open.=explorer .
+@doskey pwd=cd
+@doskey clear=cls
 @doskey cat=type $*
 @doskey ls=dir /b $*
 @doskey l=dir /od/p/q/tw $*
-@doskey e.=explorer .
-@doskey pwd=cd
-@doskey clear=cls
 
 @doskey g=git $1
 @doskey ga=git add $1
