@@ -2,6 +2,9 @@
 @doskey d=cd /d D:
 @doskey s=cd /d E:
 @doskey s=cd /d F:
+@doskey code="D:\Program Files\VSCode\Code.exe" $*
+@doskey subl="D:\Program Files\Sublime Text 3\sublime_text.exe" $*
+@doskey npp="D:\Program Files\Notepad++\Notepad++.exe" $*
 
 
 @doskey cp=copy $*
