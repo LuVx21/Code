@@ -1,7 +1,11 @@
-@doskey c=cd /d C:
+@doskey c=cd /d C:\Windows
 @doskey d=cd /d D:
-@doskey s=cd /d E:
-@doskey s=cd /d F:
+@doskey e=cd /d E:
+@doskey f=cd /d F:
+@doskey code="D:\Program Files\VSCode\Code.exe" $*
+@doskey subl="D:\Program Files\Sublime Text 3\sublime_text.exe" $*
+@doskey npp="D:\Program Files\Notepad++\Notepad++.exe" $*
+@doskey diff="D:\Program Files\Beyond Compare\BCompare.exe" $*
 
 
 @doskey cp=copy $*
