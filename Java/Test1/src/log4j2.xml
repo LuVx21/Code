@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+	<Properties>
+		<Property name="fileName">app.log</Property>
+		<Property name="backupFilePattern">logs/backup-%i.log</Property>
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+		<!--
+			<PatternLayout pattern="[%d{ISO8601}] %C{1}(%M:%L): %m%n"/>
+			-->
+		
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>  
+		</Console>
+		<RollingFile name="RollingFile" fileName="${fileName}" filePattern="${backupFilePattern}">
+			<PatternLayout>
+				<pattern>[%d{ISO8601}] %C{1}(%M:%L): %m%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="6MB"/>
+			</Policies>
+			<DefaultRolloverStrategy max="10"/>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.rsi.remote.deploy.tool.gui.MainUI" level="trace">
+			<AppenderRef ref="RollingFile"/>
+		</Logger>
+		<Root level="trace">
+			<AppenderRef ref="Console"/>
+		</Root>
+	</Loggers>
+</Configuration>
