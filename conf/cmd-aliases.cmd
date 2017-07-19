@@ -26,36 +26,42 @@
 @doskey ls=dir /b $*
 @doskey l=dir /od/p/q/tw $*
 
-@doskey g=git $1
-@doskey ga=git add $1
+@doskey g=git $*
+@doskey ga=git add $*
 @doskey ga.=git add .
+@doskey gaa=git add --all
 @doskey gamend=git commit -C head -a --amend
-@doskey gb=git branch
+@doskey gapa=git add --patch
+@doskey gau=git add --update
+
+@doskey gb=git branch $*
+@doskey gba=git branch -a $*
+@doskey gbd=git branch -d $*
+@doskey gbda=git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
+
 @doskey gc=git checkout $1
 @doskey gch.=git checkout head .
 @doskey gcl=git config --list
 @doskey gcm=git commit -m $1 -a
 @doskey gcmf=git commit -m $1 $2
 @doskey gcp=git cherry-pick -n $1
+
 @doskey gl=git log --oneline --all --graph --decorate  $*
 @doskey glog=git log
+
 @doskey gpl=git pull
 @doskey gps=git push origin $1
+
 @doskey gr=git reflog
+
 @doskey gs=git show
+@doskey gsb=git status -sb
 @doskey gsd=git show $1 $2>$3
 @doskey gsf=git show $1:$2>$3
-@doskey gsta=git status
+@doskey gsps=git show --pretty=short --show-signature
+@doskey gss=git status -s
+@doskey gst=git status $*
 
-@rem g=git
-@rem ga=git add
-@rem gaa=git add --all
-@rem gapa=git add --patch
-@rem gau=git add --update
-@rem gb=git branch
-@rem gba=git branch -a
-@rem gbd=git branch -d
-@rem gbda=git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
 @rem gbl=git blame -b -w
 @rem gbnm=git branch --no-merged
 @rem gbr=git branch --remote
@@ -148,14 +154,10 @@
 @rem gru=git reset --
 @rem grup=git remote update
 @rem grv=git remote -v
-@rem gs=git status
-@rem gsb=git status -sb
 @rem gsd=git svn dcommit
 @rem gsi=git submodule init
-@rem gsps=git show --pretty=short --show-signature
+
 @rem gsr=git svn rebase
-@rem gss=git status -s
-@rem gst=git status
 @rem gsta=git stash save
 @rem gstaa=git stash apply
 @rem gstc=git stash clear
