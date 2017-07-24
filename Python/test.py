@@ -10,7 +10,6 @@ def typeof(obj):
     print(type(obj))
 
 
-
 """
 def add(a,b):
 	z = a + b

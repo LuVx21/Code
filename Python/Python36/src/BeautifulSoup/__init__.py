@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 
-
 # https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/
 
 
@@ -43,14 +42,12 @@ print(soup.find(id='link3'))
 print('------------------')
 print(soup.get_text())
 
-
-
 # find_all 函数 : 遍历树
 # 
 # find_all(name, attrs, recursive, text, limit, **kwargs)
 
 print(soup.find_all('title'))
-print(soup.find_all('p','title'))
+print(soup.find_all('p', 'title'))
 print(soup.find_all('a'))
 print(soup.find_all(id="link2"))
 print(soup.find_all(id=True))
