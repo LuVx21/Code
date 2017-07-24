@@ -67,6 +67,7 @@ RemoteSystemsTempFiles/
 hs_err_pid*
 
 # -------------------------Python------------------------
+.pydevproject
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
