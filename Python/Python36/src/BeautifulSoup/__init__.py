@@ -1,7 +1,8 @@
+# -*- coding:utf-8 -*-
+
 from bs4 import BeautifulSoup
 
 # https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/
-
 
 html_doc = """
 <html>
@@ -14,36 +15,44 @@ html_doc = """
     <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
     <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
     <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
-    and they lived at the bottom of a well.
+    and they lived at the bottom of a well.</p>
+
     <p class="story">start...end</p>
 </body>
 </html>
 """
+soup = BeautifulSoup(html_doc, "html.parser")
 
-soup = BeautifulSoup(html_doc)
+# print(soup.prettify())
+
+print(soup.name)
+
+tag = soup.a
+
+print(tag)
+print(tag.name)
+print(tag.attrs)
+print(tag['href'])
+print(tag.get('href'))
+
+print(tag.string)
+print(tag.string.replace_with('renxie'))
+print(tag.string)
 
 print(soup.head.contents)
-print('------------------')
+
+'''
 print(soup.title)
-print('------------------')
 print(soup.title.name)
-print('------------------')
 print(soup.title.string)
-print('------------------')
 print(soup.p)
 print(soup.p.get_text())
-print('------------------')
-print(soup.a)
-print(soup.a['href'])
-print('------------------')
 print(soup.find_all('a'))
-print('------------------')
 print(soup.find(id='link3'))
-print('------------------')
 print(soup.get_text())
 
-# find_all 函数 : 遍历树
-# 
+
+# 遍历文档树
 # find_all(name, attrs, recursive, text, limit, **kwargs)
 
 print(soup.find_all('title'))
@@ -51,3 +60,4 @@ print(soup.find_all('p', 'title'))
 print(soup.find_all('a'))
 print(soup.find_all(id="link2"))
 print(soup.find_all(id=True))
+'''
