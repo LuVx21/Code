@@ -12,7 +12,7 @@
 @doskey npp="D:\Program Files\Notepad++\Notepad++.exe" $*
 @doskey diff="D:\Program Files\Beyond Compare\BCompare.exe" $*
 
-
+@doskey q=exit
 @doskey cp=copy $*
 @doskey mv=move $*
 @doskey rm=del $*
@@ -37,7 +37,6 @@
 @doskey gb=git branch $*
 @doskey gba=git branch -a $*
 @doskey gbd=git branch -d $*
-@doskey gbda=git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
 
 @doskey gc=git checkout $1
 @doskey gch.=git checkout head .
@@ -62,6 +61,7 @@
 @doskey gss=git status -s
 @doskey gst=git status $*
 
+@rem gbda=git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d
 @rem gbl=git blame -b -w
 @rem gbnm=git branch --no-merged
 @rem gbr=git branch --remote

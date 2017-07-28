@@ -1,9 +1,11 @@
 # -*- coding:utf-8 -*-
 import cx_Oracle
 from conf import *
-# http://blog.csdn.net/kongxx/article/details/7107661 
+from utils import *
+
 # 链接方式1
 conn = cx_Oracle.connect(usename, password, link)
+cursor = conn.cursor()
 
 # # 链接方式2
 # conn1 = cx_Oracle.connect(link2)
@@ -15,13 +17,25 @@ conn = cx_Oracle.connect(usename, password, link)
 # print(conn.version)
 # print(conn.dsn)
 
-cursor = conn.cursor()
-cursor.execute("select * from tc01080")
-row = cursor.fetchone()
-print(row)
+cursor.execute("select * from emp order by empno")
 
-for i in range(len(row)):
-	print(row[i])
+rows = cursor.fetchall()
+
+printall(rows)
+
+cursor.execute('select * from emp where empno > 7844')
+rows2 = cursor.fetchall()
+printall(rows2)
+
+pr = {'empno': 7566, 'sal': 2000}
+cursor.execute('select * from emp where empno > :empno and sal > :sal', pr)
+rows3 = cursor.fetchall()
+printall(rows3)
+
+# pr = {'empno': 7566, 'sal': 2000}
+cursor.execute("select * from emp where empno > '%s' and sal > '%d'" % (7566, 2000))
+rows4 = cursor.fetchall()
+printall(rows4)
 
 cursor.close()
 conn.close()
