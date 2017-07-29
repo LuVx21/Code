@@ -4,7 +4,7 @@ from conf import *
 from utils import *
 
 # 链接方式1
-conn = cx_Oracle.connect(usename, password, link)
+conn = cx_Oracle.connect(USENAME, PASSWORD, LINK)
 cursor = conn.cursor()
 
 # # 链接方式2
