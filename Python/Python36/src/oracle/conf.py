@@ -2,13 +2,22 @@
 
 import cx_Oracle
 
-ip = '127.0.0.1'
-port = '1521'
-host = ip + ':' + port
+IP = '127.0.0.1'
+PORT = '1521'
+HOST = IP + ':' + PORT
 
-dbname = 'XE'
-usename = 'scott'
-password = '1121'
+DBNAME = 'XE'
+USENAME = 'SCOTT'
+PASSWORD = '1121'
 
-link = host + '/' + dbname
-link2 = usename + '/' + password + '@' + link
+# SCOTT/1121 
+USERINFO = USENAME + '/' + PASSWORD
+
+# 127.0.0.1:1521/XE
+LINK = HOST + '/' + DBNAME
+
+# SCOTT/1121@127.0.0.1:1521
+LINK2 = USERINFO + '@' + HOST
+
+# SCOTT/1121@127.0.0.1:1521/XE
+LINK3 = USERINFO + '@' + LINK
