@@ -11,7 +11,7 @@ PKG/
 *.pdf
 *.doc
 *.docx
-*.xls
+*.xls*
 *.ttf
 *.rar
 *.zip
