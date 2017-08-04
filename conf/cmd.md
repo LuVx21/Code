@@ -8,3 +8,4 @@ brew install autojump
 brew install zsh-autosuggestions
 pip install git+https://github.com/jeffkaufman/icdiff.git
 brew install icdiff
+brew install zsh-syntax-highlighting
