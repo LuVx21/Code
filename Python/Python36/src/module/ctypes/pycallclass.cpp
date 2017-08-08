@@ -24,7 +24,7 @@ extern "C" {
     void display() {
         obj.display(); 
       }
-    void display_int() {
-        obj.display(2); 
+    void display_int(int a) {
+        obj.display(a); 
       }
 }
