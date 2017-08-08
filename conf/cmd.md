@@ -9,3 +9,8 @@ brew install zsh-autosuggestions
 pip install git+https://github.com/jeffkaufman/icdiff.git
 brew install icdiff
 brew install zsh-syntax-highlighting
+# c/c++环境?
+pip install --upgrade billiard
+pip install --upgrade celery
+pip install --upgrade kombu
+pip install --upgrade amqp
