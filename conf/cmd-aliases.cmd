@@ -55,8 +55,8 @@
 
 @doskey gs=git show
 @doskey gsb=git status -sb
-@doskey gsd=git show $1 $2>$3
-@doskey gsf=git show $1:$2>$3
+@doskey gsd=git show $1 $2
+@doskey gsf=git show $1:$2
 @doskey gsps=git show --pretty=short --show-signature
 @doskey gss=git status -s
 @doskey gst=git status $*
