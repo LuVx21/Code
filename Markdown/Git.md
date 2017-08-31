@@ -97,3 +97,13 @@ git commit --amend -m 'messgae'
 > * git checkout HEAD [filename]
 > 
 > 危险操作，将会丢失上次Commit后的所有修改，用HEAD覆盖Index和Working Tree
+
+
+### 配置提交模板
+```
+当前分支的提交模板
+git config commit.template xx.xx
+全局的提交模板
+git config -–global commit.template xx.xx
+git config –-global core.editor vim
+```
