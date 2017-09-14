@@ -28,6 +28,24 @@ man:Linux提供的一个手册,包含绝大部分的命令,函数使用说明.�
 |/word|搜索word字符串
 
 
+## expr
+
+关于
+
+计算表达式变量的值
+
+格式
+    
+    expr expression
+
+字符串处理
+```
+match str1 str2:在str1中查找str2,str2支持正则表达式
+substr str index length:从index处开始截取length长度子串(index start from 0)
+index str1 str2:在str1中查找str2
+length str:str的长度
+```
+
 ## 查看信息:ls
 关于
 
