@@ -16,3 +16,4 @@ pip install --upgrade kombu
 pip install --upgrade amqp
 pip install pillow
 brew install fpp
+brew install htop
