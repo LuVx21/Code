@@ -17,3 +17,6 @@ pip install --upgrade amqp
 pip install pillow
 brew install fpp
 brew install htop
+brew install mosh
+brew install tmux
+brew install axel
