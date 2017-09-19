@@ -20,3 +20,6 @@ brew install htop
 brew install mosh
 brew install tmux
 brew install axel
+brew install tig
+brew install tldr
+brew install cloc
