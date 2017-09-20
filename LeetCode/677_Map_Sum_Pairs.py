@@ -12,7 +12,7 @@ class MapSum:
         """
         Initialize your data structure here.
         """
-        
+        self.datadict = {}
 
     def insert(self, key, val):
         """
@@ -20,17 +20,20 @@ class MapSum:
         :type val: int
         :rtype: void
         """
-        
+        self.datadict[key] = val
 
     def sum(self, prefix):
         """
         :type prefix: str
         :rtype: int
         """
-        
+        return sum(val for key, val in self.datadict.items() if str(key).startswith(prefix))
 
+obj = MapSum()
+obj.insert('a', 1)
+obj.insert('bb', 2)
+obj.insert('aaa', 4)
+obj.insert(121, 4)
+param_2 = obj.sum('a')
+print(param_2)
 
-# Your MapSum object will be instantiated and called as such:
-# obj = MapSum()
-# obj.insert(key,val)
-# param_2 = obj.sum(prefix)
