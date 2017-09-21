@@ -2,6 +2,21 @@
 
 @(Linux)
 
+## git clean
+
+
+```
+# 显示能被清除的文件
+git clean -n
+# 清除为版本化的文件,依赖`.gitignore`
+git clean -f <path>
+# 不依赖`.gitignore`,
+git clean -xf
+# 清除为版本化的文件夹
+git clean -d
+```
+常搭配reset以回退状态
+
 ## 删除:git rm
 ```
 git rm
