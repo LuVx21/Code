@@ -23,3 +23,5 @@ brew install axel
 brew install tig
 brew install tldr
 brew install cloc
+pip install ngxtop
+brew install di
