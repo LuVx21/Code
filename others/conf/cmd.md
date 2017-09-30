@@ -25,3 +25,9 @@ brew install tldr
 brew install cloc
 pip install ngxtop
 brew install di
+-----------------
+# vim安装中文帮助文档
+wget http://nchc.dl.sourceforge.net/sourceforge/vimcdoc/vimcdoc-1.5.0.tar.gz
+cd vimcdoc-1.5.0
+sudo ./vimcdoc.sh -i
+-----------------
