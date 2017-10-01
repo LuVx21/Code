@@ -8,7 +8,13 @@ brew install autojump
 brew install zsh-autosuggestions
 pip install git+https://github.com/jeffkaufman/icdiff.git
 brew install icdiff
+```
+<!-- zsh 语法高亮 -->
 brew install zsh-syntax-highlighting
+<!-- .zshrc文件中添加 -->
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
 # c/c++环境?
 pip install --upgrade billiard
 pip install --upgrade celery
