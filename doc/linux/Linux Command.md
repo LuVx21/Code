@@ -28,6 +28,12 @@ man:Linux提供的一个手册,包含绝大部分的命令,函数使用说明.�
 |/word|搜索word字符串
 
 
+# mkdir
+
+```
+mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}
+```
+
 ## expr
 
 关于
