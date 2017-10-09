@@ -27,8 +27,17 @@ man:Linux提供的一个手册,包含绝大部分的命令,函数使用说明.�
 |h|查看所有功能键
 |/word|搜索word字符串
 
+## tail
 
-# mkdir
+默认输出文件的后10行内容,可以指定输出的行数 
+
+```
+tail <filename.xx>
+tail -n N <filename.xx>
+```
+
+
+## mkdir
 
 ```
 mkdir -p project/{lib/ext,bin,src,doc/{html,info,pdf},demo/stat/a}
@@ -257,6 +266,8 @@ Linux允许将命令执行结果重定向到一个文件,
 查看内容时,在信息过长无法在一屏上显示时,会出现快速滚屏,使得用户无法看清文件的内容,此时可以使用more命令,每次只显示一页,按下空格键可以显示下一页,按下q键退出显示,按下h键可以获取帮助.
 ctrl+b 返回上一屏
 ctrl+f 下一屏
+
+> 与此类似的有`less`命令
 
 ## 管道:|
 
