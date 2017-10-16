@@ -9,6 +9,7 @@ budget = pd.read_csv("mn-budget-detail-2014.csv")
 budget = budget.sort('amount', ascending=False)[:10]
 
 pd.options.display.mpl_style = 'default'
+# 使用 detail 列的数据完成了创建图表的主要工作，同时展示了 title并移除了 legend 
 budget_plot = budget.plot(kind="bar", x=budget["detail"],
                           title="MN Capital Budget - 2014",
                           legend=False)

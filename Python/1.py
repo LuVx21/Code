@@ -81,3 +81,12 @@ print(my_dict)  # {1: 2, 2: 4, 3: 6}
 # 还可以指定过滤条件
 my_dict = {number: number * 2 for number in numbers if number > 1}
 print(my_dict)  # {2: 4, 3: 6}
+
+
+stus = [
+    {"name": "zhangsan", "age": 18},
+    {"name": "lisi", "age": 19},
+    {"name": "wangwu", "age": 17}
+]
+# 按name排序
+stus.sort(key=lambda x: x['name'])
