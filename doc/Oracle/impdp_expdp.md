@@ -33,7 +33,9 @@ expdp scott/tiger key=value
 |tablespaces=temp||
 |dumpfile=expdp.dmp||
 |directory=dpdata1||
+|content|data_only,metadata_only,all分别为数据,表结构,两者|
 |parallel=40|并行进程|
+|nologfile=y||
 |full=y|整个数据库|
 
 
