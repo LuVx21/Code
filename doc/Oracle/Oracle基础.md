@@ -153,7 +153,9 @@ end;
 ## 用户相关
 ```
 create user scott identified by tiger;
-grant connect,resource,unlimited tablespace to scott identified by tiger;
+alter user username identified by password;
+grant connect,resource,create session,create table,unlimited tablespace to scott;
 alter user scott default tablespace users;
 alter user scott temporary tablespace temp;
+create tablespace spacename datafile '/Users/xx/data_oracle' size 2M;
 ```
