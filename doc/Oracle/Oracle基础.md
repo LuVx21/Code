@@ -48,7 +48,7 @@ v_name table_name := table_name('1','2','3'); -- 初始化赋值
 ```
 `is table` 后可以是`rowtype`,也可以是`recode`
 
-`VARRAY`和`TABLE`集合不能直接对其进行查询。只能对其进行遍历。
+`VARRAY`和`TABLE`集合不能直接对其进行`查询`。只能对其进行`遍历`。
 ## bulk collect(批量聚合类型)
 通过bulk collect减少loop处理的开销，使用Bulk Collect提高Oracle查询效率
 
@@ -119,7 +119,7 @@ declare
   v_ename_table ename_table_type;
 begin
     for i in 1..1000 loop
-          v_empno_table(i):=i+2000;
+          v_empno_table(i):=i + 2000;
           v_ename_table(i):='name'||to_char(i);
     end loop;
   forall i in 1..v_empno_table.count
@@ -129,7 +129,7 @@ begin
   update my_emp set ename=v_ename_table(i) where empno=v_empno_table(i);
   --删除
   delete from my_emp where empno=v_empno_table(i);
-	end;
+end;
 /
 ```
 **sql%bulk_rowcount属性**
@@ -151,11 +151,12 @@ end;
 `SQL%BULK_ROWCOUNT(i)`表示 `FORALL` 语句第 i 元素所作用的行数
 
 ## 用户相关
+
 ```
 create user scott identified by tiger;
 alter user username identified by password;
 grant connect,resource,create session,create table,unlimited tablespace to scott;
-alter user scott default tablespace users;
+create tablespace spacename datafile '/Users/xx/data_oracle/xx.dbf' size 2M;
+alter user scott default tablespace spacename;
 alter user scott temporary tablespace temp;
-create tablespace spacename datafile '/Users/xx/data_oracle' size 2M;
 ```
