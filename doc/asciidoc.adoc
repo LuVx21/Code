@@ -1,0 +1,376 @@
+= AsciiDoc简明指南 =
+F.LuVx <test@gmail.com>
+
+== 特殊定义 ==
+
+变量形式 \{变量}
+
+参数形式 [参数组]
+
+|===
+|`\`|转义
+|`//`|注释
+|space|引用
+|===
+
+
+== 基本区块 ==
+基本区块是一行或多行文本，也可以包括其他基本区块。
+
+AsciiDoc基本区块概括如下[这是一个大概的结构指南，不是严格的语法定义]：
+
+  文档 ::= (头部?,前言?,章节*)
+  头部 ::= (标题,(作者,修订?)?)
+  作者 ::= (名字,(中间名?,姓氏)?,Email地址?)
+  修订 ::= (版本?,日期)
+  前言 ::= (段落)
+  章节 ::= (标题,段落?,(章节)*)
+  段落 ::= ((区块标题?,区块)|宏块)+
+  区块 ::= (自然段|独立块|列表|表格)
+  列表 ::= (无序列表|有序列表|定义列表|标注列表)
+  无序列表 ::= (项目)+
+  有序列表 ::= (项目)+
+  标注列表 ::= (项目)+
+  定义列表 ::= (条目)+
+  条目 ::= (标签,项目)
+  标签 ::= (项目+)
+  项目 ::= (项目文本,(列表|段落列表|列表后续)*)
+
+注释:
+
+- '?' 表示0或1个，'+' 表示0或多个，'*' 表示1或多个。
+- 所有的基本区块有独立的界线分开.
+- 下面的基本部分不能包含空行: 头部，标题，段落，项目文本。
+
+
+== 头部 ==
+头部包含文档标题、作者和版本信息。头部可选但是必须在文档的顶部。
+
+  = 使用 AsciiDoc 编写文档 =
+  Joe Bloggs <jbloggs@mymail.com>
+  v2.0, February 2003:
+  Rewritten for version 2 release.
+
+== 标签 ==
+
+=== 标题 ===
+
+|===
+|=|1级标题
+|==|2级标题
+|===
+
+ 最多支持到6级标题
+ .段落，列表，表格或区块标题
+ 标题前后应该用等量的'='括起,但不括起也能被解析
+
+=== 文字格式 ===
+
+|===
+|_|斜体,_test_
+|*|粗体,*test*
+|+|等宽字体,+test+
+|`|等宽字体,里面的格式命令无效,`test`
+|#|无格式文本,#test#
+|^|上标,a^2^
+|~|下标,A~2~
+|[,,]|字体色,背景色,字号,使用在格式前[red,red,]__test__
+|===
+
+ 格式标签前后要有空格，没有空格的时候需要是双符号。
+
+=== 特殊符号 ===
+
+|===
+|\(C)|(C)版权
+|\(TM)|(TM)商标
+|\(R)|(R) 注册商标
+|\<-|<- 左箭头
+|\<=|<= 左箭头
+|\->|-> 右箭头
+|\=>|=> 右箭头
+|\&#182;|&#182;
+|===
+
+
+=== 文本块样式 ===
+
+
+|====
+|/|注释块,不输出到目标文件(html)
+|+|不转换内部的特殊字符
+|-|开放块,2个一起使用
+|-|清单块
+|_|引用块
+|.|清单块
+|*|侧边栏,有边框和背景
+|=|例子块
+|====
+
+ 4个符号一起成对使用
+ [source,python]声明代码语言
+____
+QuoteBlock(引用块)
+____
+
+----
+ListingBlock(清单块)
+用于计算机的输出和文件列表。也可用于程序代码。里面特殊字符不替换。
+----
+
+....
+LiteralBlock(清单块)
+就像普通文字段落，保留了空格，使用[listing]块标题可以在内部引用其他块样式。
+....
+
+====
+ExampleBlock(例子块)
+会使用数字编号的例子标题[caption="例1: "]
+可以使用NOTE, TIP, IMPORTANT, WARNING, CAUTION标题[NOTE]表示提示块
+====
+
+=== 提示段落 ===
+
+|===
+|Tip|提示
+|Note|注意
+|Important|重要
+|Caution|警示
+|Warning|警告
+|===
+
+例：
+
+  NOTE: 这是一个注意的例子。
+
+或
+
+  [NOTE]
+  这是一个注意的例子。
+
+样式↓
+
+[NOTE]
+这是一个注意的例子。
+
+
+
+可以使用 `icons`, `iconsdir`, `icon` 和 `caption` 参数以个性化显示。
+
+默认生成文本标题替换图标链接，生成图标链接需要使用`-a icons`命令行参数。
+``caption``:屏蔽图标并定义注释警告的标题
+
+[caption='test']
+[NOTE]
+test
+
+
+=== 列表 ===
+
+==== 无序列表 ====
+....
+- List item.
+* List item.
+** List item.
+*** List item.
+**** List item.
+***** List item.
+....
+
+==== 有序列表 ====
+
+手动序号序号使用下面一种
+
+....
+1.   阿拉伯数字标注的列表项目.
+a.   小写字母标注的列表项目.
+F.   大写字母标注的列表项目.
+iii) 小写罗马数字标注的列表项目.
+IX)  大写罗马数字标注的列表项目.
+....
+
+自动符号列表项目是1-5个句点，跟着是一些空格和文本。句点个数表示级别。例如：
+....
+. 阿拉伯数字标注的列表项目.
+.. 小写字母标注的列表项目.
+... 小写罗马数字标注的列表项目.
+.... 大写字母标注的列表项目.
+..... 大写罗马数字标注的列表项目.
+....
+
+
+==== 定义列表 ====
+
+字母或数字开始1-4个冒号或两个分号结束。
+
+---------------------------------------------------------------------
+项目1::
+项目2::
+  项目说明.
+
+  项目说明.
+
+项目3:: 项目说明.
+  * 列表项.
+  * 列表项.
+项目4::
+  说明1.
+  二级项目;;
+    二级说明.
+  二级项目;;
+    二级说明.
+  二级项目;;
+    二级说明.
+    三级项目::: 三级说明.
+    三级项目:::   三级说明.
+*水平项目*:: 水平说明.
+
+  水平说明.
+
+---------------------------------------------------------------------
+
+==== 问答列表 ====
+---------------------------------------------------------------------
+[qanda]
+问题1::
+        答案1.
+问题2::
+        答案2.
+---------------------------------------------------------------------
+
+==== 专业术语列表 ====
+---------------------------------------------------------------------
+[glossary]
+术语1::
+    解释1.
+术语2::
+    解释2.
+---------------------------------------------------------------------
+
+=== 脚注 ===
+
+    A footnote footnote:[An example footnote.];
+    a second footnote with a reference ID footnoteref:[note2,Second footnote.];
+    finally a reference to the second footnote footnoteref:[note2].
+
+
+=== 超链接 ===
+'http'，'https'，'ftp'，'file'，'mailto'和'callto'超链接。
+直接书写就行，参数是显示名称，空格使用%20。
+
+  http://www.methods.co.nz/asciidoc/[The AsciiDoc home page]
+  http://www.methods.co.nz/asciidoc/
+  mailto:joe.bloggs@foobar.com[email Joe Bloggs]
+  joe.bloggs@foobar.com
+
+=== 锚点 ===
+
+ 锚点：[[A88]]
+
+ 链接：<<A88,chapter titles>>
+
+=== 图片 ===
+ image:images/logo.png["Company Logo",height=32,link="screen.png",scaledwidth="75%"align="left"]
+
+=== 表格 ===
+
+....
+[width="40%",cols="^,2m",frame="topbot",options="header,footer"]
+|======================
+|Column 1 |Column 2
+|1        |Item 1
+|2        |Item 2
+|3        |Item 3
+|6        |Three items
+|======================
+....
+
+----
+ 表格参数：
+
+ frame边框topbot(上和下)，all(全部边，默认), none and sides (左和右)。
+ align对齐left，right和center。
+ options选项header(有标题)footer(有底部)
+ width宽度1-99%
+
+ 行参数：
+
+ [<multiplier>*][<align>][<width>][<style>]
+ 左缩进，对齐，宽度，样式
+
+ 单元格参数：
+
+ [<span>*|+][<align>][<style>]
+ *缩进，+合并
+ span语法[水平][.垂直]参数中<，^和>分别表示水平左中右和垂直上中下。
+----
+
+
+== 宏 ==
+
+  {include:<filename>} 得到`<filename>`的内容。
+  {sys:<command>} 得到执行脚本命令`<command>`的标准输出。
+  {sys2:<command>} 得到执行脚本命令`<command>`的标准输出和标准错误。
+  {sys3:<command>} 直接输出结果不进行任何处理。
+  {amp}                 显示字符 (&)
+  {asciidoc-dir}        asciidoc(1)程序文件夹
+  {asciidoc-file}       asciidoc(1)脚本的完整路径
+  {asciidoc-version}    asciidoc(1)的版本
+  {author}              作者姓名
+  {authored}            空字符串 '' 如果 {author} 或 {email} 已经指定,
+  {authorinitials}      作者缩写 (from document header)
+  {backend-<backend>}   空字符串 ''
+  {<backend>-<doctype>} 空字符串 ''
+  {backend}             document backend specified by `-b` option
+  {backslash}           反斜杠
+  {basebackend-<base>}  空字符串 ''
+  {basebackend}         html 或 docbook
+  {brvbar}              竖线 (|)
+  {revdate}             文档修订日期 (from document header)
+  {docdate}             文档最后修改日期
+  {doctime}             文档最后修改时间
+  {docname}             文档文件名不含扩展名
+  {docfile}             文档文件名 (note 5)
+  {docdir}              document input directory name  (note 5)
+  {doctitle}            文档标题 (from document header)
+  {doctype-<doctype>}   空字符串 ''
+  {doctype}             文档类型使用`-d`设置指定
+  {email}               作者email (from document header)
+  {empty}               空字符串 ''
+  {encoding}            指定输入输出编码
+  {filetype-<fileext>}  空字符串 ''
+  {filetype}            输出文件的扩展名
+  {firstname}           作者名字 (from document header)
+  {gt}                  大于号 (>)
+  {id}                  running block id generated by BlockId elements
+  {indir}               输出文件的文件夹名称 (note 2,5)
+  {infile}              输入文件名称 (note 2,5)
+  {lastname}            作者姓氏 (from document header)
+  {level}               标题级别 1..4 (in section titles)
+  {listindex}           the list index (1..) of the most recent list item
+  {localdate}           当前日期
+  {localtime}           当期时间
+  {lt}                  小于号 (<)
+  {manname}             manpage name (defined in NAME section)
+  {manpurpose}          manpage (defined in NAME section)
+  {mantitle}            document title minus the manpage volume number
+  {manvolnum}           manpage volume number (1..8) (from document header)
+  {middlename}          作者中间名 (from document header)
+  {nbsp}                空格
+  {outdir}              文档输出文件夹名 (note 2)
+  {outfile}             输出文件名 (note 2)
+  {reftext}             running block xreflabel generated by BlockId elements
+  {revnumber}           文档修订版本号 (from document header)
+  {sectnum}             formatted section number (in section titles)
+  {showcomments}        在输出文件中显示注释行
+  {title}               章节标题 (in titled elements)
+  {two_colons}          双冒号
+  {two_semicolons}      双分号
+  {user-dir}            ~/.asciidoc文件夹 (如果存在)
+  {verbose}             defined as '' if --verbose command option specified
+
+== asciidoc命令参数 ==
+
+ --htlp 帮助
+ -n 自动生成标题前面的编号
+

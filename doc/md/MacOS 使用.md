@@ -18,6 +18,11 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
 defaults delete com.apple.desktopservices DSDontWriteNetworkStores
 ```
 
+删除.DS_store文件
+```
+find . -name '*.DS_Store' -type f -delete
+```
+
 ## terminal 修改语言
 
 ```
