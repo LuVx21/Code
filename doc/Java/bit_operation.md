@@ -1,4 +1,4 @@
-# 位运算
+# 位运算(bitwise operation)
 
 @(Java)
 
