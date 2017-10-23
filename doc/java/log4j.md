@@ -5,12 +5,14 @@
 > [toc]
 
 ## 日志级别
+
 ERROR 为严重错误 主要是程序的错误
 WARN 为一般警告，比如session丢失
 INFO 为一般要显示的信息，比如登录登出
 DEBUG 为程序的调试信息
 
 ## 日志输出目的地
+
 log4j.appender.appenderName = fully.qualified.name.of.appender.class
 1. org.apache.log4j.ConsoleAppender（控制台）
 2. org.apache.log4j.FileAppender（文件）
@@ -19,12 +21,15 @@ log4j.appender.appenderName = fully.qualified.name.of.appender.class
 5. org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
 
 ## 日志信息的格式
+
 log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
 1. org.apache.log4j.HTMLLayout（以HTML表格形式布局），
 2. org.apache.log4j.PatternLayout（可以灵活地指定布局模式），
 3. org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），
 4. org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）
+
 ## 日志信息格式说明
+
 -X号: X信息输出时左对齐；
  %p: 输出日志信息优先级，即DEBUG，INFO，WARN，ERROR，FATAL,
  %d: 输出日志时间点的日期或时间，默认格式为ISO8601，也可以在其后指定格式，比如：%d{yyy MMM dd HH:mm:ss,SSS}，输出类似：2002年10月18日 22：10：28，921
@@ -45,7 +50,9 @@ log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class
  2)   %-20c:指定输出category的名称，最小的宽度是20，如果category的名称小于20的话，"-"号指定左对齐。
  3)   %.30c:指定输出category的名称，最大的宽度是30，如果category的名称大于30的话，就会将左边多出的字符截掉，但小于30的话也不会有空格。
  4)   %20.30c:如果category的名称小于20就补空格，并且右对齐，如果其名称长于30字符，就从左边较远输出的字符截掉。
+
 ## 控制台选项
+
 Threshold=DEBUG:指定日志消息的输出最低层次。
 ImmediateFlush=true:默认值是true,意谓着所有的消息都会被立即输出。
 Target=System.err：默认情况下是：System.out,指定输出控制台
