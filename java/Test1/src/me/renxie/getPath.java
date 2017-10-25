@@ -20,8 +20,11 @@ public class getPath {
 
     // 项目根路径
     public void getPath3() throws IOException {
-        File directory = new File("");// 参数为空
+        // 参数为空
+        File directory = new File("");
+        // 绝对路径和相对路径
         String courseFile = directory.getCanonicalPath();
+        String courseFile = directory.getAbsolutePath();
         System.out.println(courseFile);
     }
 
