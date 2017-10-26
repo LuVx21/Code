@@ -38,3 +38,6 @@ cd vimcdoc-1.5.0
 sudo ./vimcdoc.sh -i
 -----------------
 brew install hugo
+-----------------
+# cnpm 淘宝镜像源
+npm install -g cnpm --registry=https://registry.npm.taobao.org

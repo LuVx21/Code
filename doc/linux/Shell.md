@@ -1,3 +1,10 @@
+---
+title: Shell
+taga:
+- Shell
+- Linux
+---
+
 # Shell
 
 @(Linux)[shell]
@@ -57,8 +64,10 @@ str="apple, tree, apple tree"
 ## alias中使用shell函数
 
 alias中间使用参数,可以使用函数:
-```
+```shell
 alias src='fun() { grep -i $1 /c/cvs_app/1/src.txt > /c/cvs_app/1/docpath.txt && vs /c/cvs_app/1/docpath.txt;};fun'
+## 变异java,删除.class文件
+alias jb='fun () { name=$(basename $1 .java) && javac $1 && java $name && rm $name".class";};fun'
 ```
 
 ## (()) 和 []

@@ -26,6 +26,8 @@ npm install
 ```
 
 ```
+git clone https://github.com/iissnan/hexo-theme-next themes/next
+git clone https://github.com/viosey/hexo-theme-material.git themes/material
 hexo new [layout] filename
 # Run server
 hexo server
