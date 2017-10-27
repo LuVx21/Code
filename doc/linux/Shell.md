@@ -1,6 +1,6 @@
 ---
 title: Shell
-taga:
+tags:
 - Shell
 - Linux
 ---
@@ -67,7 +67,7 @@ alias中间使用参数,可以使用函数:
 ```shell
 alias src='fun() { grep -i $1 /c/cvs_app/1/src.txt > /c/cvs_app/1/docpath.txt && vs /c/cvs_app/1/docpath.txt;};fun'
 ## 变异java,删除.class文件
-alias jb='fun () { name=$(basename $1 .java) && javac $1 && java $name && rm $name".class";};fun'
+alias jb='fun () { dir=$(dirname $1) && name=$(basename $1 .java) && cd $dir && javac $(basename $1) && java $name && rm $name".class" && cd - > /dev/null;};fun'
 ```
 
 ## (()) 和 []
