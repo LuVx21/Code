@@ -8,24 +8,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /*
- * ¸´ÖÆÍ¼Æ¬
+ * å¤åˆ¶å›¾ç‰‡
  * 
- * ·ÖÎö£º
- * 		¸´ÖÆÊı¾İ£¬Èç¹ûÎÒÃÇÖªµÀÓÃ¼ÇÊÂ±¾´ò¿ª²¢ÄÜ¹»¶Á¶®£¬¾ÍÓÃ×Ö·ûÁ÷£¬·ñÔòÓÃ×Ö½ÚÁ÷¡£
- * 		Í¨¹ı¸ÃÔ­Àí£¬ÎÒÃÇÖªµÀÎÒÃÇÓ¦¸Ã²ÉÓÃ×Ö½ÚÁ÷¡£
- * 		¶ø×Ö½ÚÁ÷ÓĞ4ÖÖ·½Ê½£¬ËùÒÔ×öÕâ¸öÌâÄ¿ÎÒÃÇÓĞ4ÖÖ·½Ê½¡£ÍÆ¼öÕÆÎÕµÚ4ÖÖ¡£
+ * åˆ†æï¼š
+ * 		å¤åˆ¶æ•°æ®ï¼Œå¦‚æœæˆ‘ä»¬çŸ¥é“ç”¨è®°äº‹æœ¬æ‰“å¼€å¹¶èƒ½å¤Ÿè¯»æ‡‚ï¼Œå°±ç”¨å­—ç¬¦æµï¼Œå¦åˆ™ç”¨å­—èŠ‚æµã€‚
+ * 		é€šè¿‡è¯¥åŸç†ï¼Œæˆ‘ä»¬çŸ¥é“æˆ‘ä»¬åº”è¯¥é‡‡ç”¨å­—èŠ‚æµã€‚
+ * 		è€Œå­—èŠ‚æµæœ‰4ç§æ–¹å¼ï¼Œæ‰€ä»¥åšè¿™ä¸ªé¢˜ç›®æˆ‘ä»¬æœ‰4ç§æ–¹å¼ã€‚æ¨èæŒæ¡ç¬¬4ç§ã€‚
  * 
- * Êı¾İÔ´£º
+ * æ•°æ®æºï¼š
  * 		c:\\a.jpg -- FileInputStream -- BufferedInputStream
- * Ä¿µÄµØ£º
+ * ç›®çš„åœ°ï¼š
  * 		d:\\b.jpg -- FileOutputStream -- BufferedOutputStream
  */
 public class CopyImageDemo {
 	public static void main(String[] args) throws IOException {
-		// Ê¹ÓÃ×Ö·û´®×÷ÎªÂ·¾¶
+		// ä½¿ç”¨å­—ç¬¦ä¸²ä½œä¸ºè·¯å¾„
 		// String srcString = "c:\\a.jpg";
 		// String destString = "d:\\b.jpg";
-		// Ê¹ÓÃFile¶ÔÏó×öÎª²ÎÊı
+		// ä½¿ç”¨Fileå¯¹è±¡åšä¸ºå‚æ•°
 		File srcFile = new File("c:\\a.jpg");
 		File destFile = new File("d:\\b.jpg");
 
@@ -35,7 +35,7 @@ public class CopyImageDemo {
 		method4(srcFile, destFile);
 	}
 
-	// ×Ö½Ú»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö½ÚÊı×é
+	// å­—èŠ‚ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—èŠ‚æ•°ç»„
 	private static void method4(File srcFile, File destFile) throws IOException {
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(
 				srcFile));
@@ -52,7 +52,7 @@ public class CopyImageDemo {
 		bis.close();
 	}
 
-	// ×Ö½Ú»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö½Ú
+	// å­—èŠ‚ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—èŠ‚
 	private static void method3(File srcFile, File destFile) throws IOException {
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream(
 				srcFile));
@@ -68,7 +68,7 @@ public class CopyImageDemo {
 		bis.close();
 	}
 
-	// »ù±¾×Ö½ÚÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö½ÚÊı×é
+	// åŸºæœ¬å­—èŠ‚æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—èŠ‚æ•°ç»„
 	private static void method2(File srcFile, File destFile) throws IOException {
 		FileInputStream fis = new FileInputStream(srcFile);
 		FileOutputStream fos = new FileOutputStream(destFile);
@@ -83,7 +83,7 @@ public class CopyImageDemo {
 		fis.close();
 	}
 
-	// »ù±¾×Ö½ÚÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö½Ú
+	// åŸºæœ¬å­—èŠ‚æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—èŠ‚
 	private static void method1(File srcFile, File destFile) throws IOException {
 		FileInputStream fis = new FileInputStream(srcFile);
 		FileOutputStream fos = new FileOutputStream(destFile);

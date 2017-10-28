@@ -5,7 +5,7 @@ public class Person {
 	private int age;
 	public Person() {
 		super();
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 	}
 	public Person(String name, int age) {
 		super();
@@ -30,8 +30,8 @@ public class Person {
 	}
 	@Override
 	protected void finalize() throws Throwable {
-		// TODO ×Ô¶¯Éú³ÉµÄ·½·¨´æ¸ù
-		System.err.println("µ±Ç°µÄ¶ÔÏó±»»ØÊÕÁË"+this);
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ–¹æ³•å­˜æ ¹
+		System.err.println("å½“å‰çš„å¯¹è±¡è¢«å›æ”¶äº†"+this);
 		super.finalize();
 	}
 	

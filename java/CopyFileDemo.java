@@ -7,15 +7,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /*
- * ¸´ÖÆÎÄ±¾ÎÄ¼ş
+ * å¤åˆ¶æ–‡æœ¬æ–‡ä»¶
  * 
- * ·ÖÎö£º
- * 		¸´ÖÆÊı¾İ£¬Èç¹ûÎÒÃÇÖªµÀÓÃ¼ÇÊÂ±¾´ò¿ª²¢ÄÜ¹»¶Á¶®£¬¾ÍÓÃ×Ö·ûÁ÷£¬·ñÔòÓÃ×Ö½ÚÁ÷¡£
- * 		Í¨¹ı¸ÃÔ­Àí£¬ÎÒÃÇÖªµÀÎÒÃÇÓ¦¸Ã²ÉÓÃ×Ö·ûÁ÷¸ü·½±ãÒ»Ğ©¡£
- * 		¶ø×Ö·ûÁ÷ÓĞ5ÖÖ·½Ê½£¬ËùÒÔ×öÕâ¸öÌâÄ¿ÎÒÃÇÓĞ5ÖÖ·½Ê½¡£ÍÆ¼öÕÆÎÕµÚ5ÖÖ¡£
- * Êı¾İÔ´£º
+ * åˆ†æï¼š
+ * 		å¤åˆ¶æ•°æ®ï¼Œå¦‚æœæˆ‘ä»¬çŸ¥é“ç”¨è®°äº‹æœ¬æ‰“å¼€å¹¶èƒ½å¤Ÿè¯»æ‡‚ï¼Œå°±ç”¨å­—ç¬¦æµï¼Œå¦åˆ™ç”¨å­—èŠ‚æµã€‚
+ * 		é€šè¿‡è¯¥åŸç†ï¼Œæˆ‘ä»¬çŸ¥é“æˆ‘ä»¬åº”è¯¥é‡‡ç”¨å­—ç¬¦æµæ›´æ–¹ä¾¿ä¸€äº›ã€‚
+ * 		è€Œå­—ç¬¦æµæœ‰5ç§æ–¹å¼ï¼Œæ‰€ä»¥åšè¿™ä¸ªé¢˜ç›®æˆ‘ä»¬æœ‰5ç§æ–¹å¼ã€‚æ¨èæŒæ¡ç¬¬5ç§ã€‚
+ * æ•°æ®æºï¼š
  * 		c:\\a.txt -- FileReader -- BufferdReader
- * Ä¿µÄµØ£º
+ * ç›®çš„åœ°ï¼š
  * 		d:\\b.txt -- FileWriter -- BufferedWriter
  */
 public class CopyFileDemo {
@@ -29,7 +29,7 @@ public class CopyFileDemo {
 		method5(srcString, destString);
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û´®
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦ä¸²
 	private static void method5(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -46,7 +46,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·ûÊı×é
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 	private static void method4(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -62,7 +62,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// ×Ö·û»º³åÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û
+	// å­—ç¬¦ç¼“å†²æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦
 	private static void method3(String srcString, String destString)
 			throws IOException {
 		BufferedReader br = new BufferedReader(new FileReader(srcString));
@@ -77,7 +77,7 @@ public class CopyFileDemo {
 		br.close();
 	}
 
-	// »ù±¾×Ö·ûÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·ûÊı×é
+	// åŸºæœ¬å­—ç¬¦æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
 	private static void method2(String srcString, String destString)
 			throws IOException {
 		FileReader fr = new FileReader(srcString);
@@ -93,7 +93,7 @@ public class CopyFileDemo {
 		fr.close();
 	}
 
-	// »ù±¾×Ö·ûÁ÷Ò»´Î¶ÁĞ´Ò»¸ö×Ö·û
+	// åŸºæœ¬å­—ç¬¦æµä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦
 	private static void method1(String srcString, String destString)
 			throws IOException {
 		FileReader fr = new FileReader(srcString);
