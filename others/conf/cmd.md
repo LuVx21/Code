@@ -1,9 +1,16 @@
 brew install lynx
 brew install the_silver_searcher
 brew tap caskroom/cask
+# quick look 插件
 brew cask install QLMarkdown
+
+brew install highlight
 brew cask install qlcolorcode
 brew cask install betterzipql
+brew cask install quicklook-json
+安装好执行
+`qlmanage -r`
+
 brew install autojump
 brew install zsh-autosuggestions
 pip install git+https://github.com/jeffkaufman/icdiff.git
