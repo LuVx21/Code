@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Context>
+		<!--
+			使用场景:长时间未操作时,为减轻服务器压力,使bean钝化
+			通过配置文件修改javabean什么时候钝化(合理分配服务器内存)
+			项目下/meta-info创建一个context.xml
+			maxIdleSwap	:1分钟 如果session不使用就会序列化到硬盘.
+			directory	:itheima 序列化到硬盘的文件存放的位置.
+		-->
+		<Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">
+			<Store className="org.apache.catalina.session.FileStore" directory="itheima"/>
+		</Manager>
+	</Context>
