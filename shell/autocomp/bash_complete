@@ -1,0 +1,28 @@
+_complete_func() {
+    local cur prev opts base
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+    if [[ ${cur} == -* ]] ; then
+        opts="-h -u -d -p"
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    else
+        opts=$( _complete_d_option )
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    fi
+
+    return 0
+}
+
+_complete_d_option() {
+    date -v -3d +"%Y-%m-%d"
+    date -v -2d +"%Y-%m-%d"
+    date -v -1d +"%Y-%m-%d"
+    date +"%Y-%m-%d"
+    date -v +1d +"%Y-%m-%d"
+    date -v +2d +"%Y-%m-%d"
+    date -v +3d +"%Y-%m-%d"
+}
+
+complete -F _complete_func cli-test.sh
