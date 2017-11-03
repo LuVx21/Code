@@ -1,21 +1,23 @@
 # Code
 
-## DataBase
-
-## Java
-
-## JetBrans
-
-## Markdown
-
-## Python
-
-## Shell
-
-## VBA
-
-## Web
-
 ## c
 
+## database
+
+## doc
+
+## index.htm
+
+## java
+
+## jetbrains
+
+## leetcode
+
 ## others
+
+## python
+
+## shell
+
+## web
