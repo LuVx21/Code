@@ -6,8 +6,6 @@
 
 ## doc
 
-## index.htm
-
 ## java
 
 ## jetbrains
