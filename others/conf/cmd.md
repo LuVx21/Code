@@ -48,3 +48,5 @@ brew install hugo
 -----------------
 # cnpm 淘宝镜像源
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+pip install dict-cli
+brew install ccat
