@@ -254,35 +254,35 @@ under the License.
       </properties>
     </profile>
     -->
-	<profile>   
-	<!--profileµÄid-->
-   <id>dev</id>   
-    <repositories>   
-      <repository>  
-		<!--²Ö¿âid£¬repositories¿ÉÒÔÅäÖÃ¶à¸ö²Ö¿â£¬±£Ö¤id²»ÖØ¸´-->
-        <id>nexus</id>   
-		<!--²Ö¿âµØÖ·£¬¼´nexus²Ö¿â×éµÄµØÖ·-->
-        <url>http://localhost:8081/nexus/content/groups/public/</url>   
-		<!--ÊÇ·ñÏÂÔØreleases¹¹¼þ-->
-        <releases>   
-          <enabled>true</enabled>   
-        </releases>   
-		<!--ÊÇ·ñÏÂÔØsnapshots¹¹¼þ-->
-        <snapshots>   
-          <enabled>true</enabled>   
-        </snapshots>   
-      </repository>   
-    </repositories>  
-	 <pluginRepositories>  
-    	<!-- ²å¼þ²Ö¿â£¬mavenµÄÔËÐÐÒÀÀµ²å¼þ£¬Ò²ÐèÒª´ÓË½·þÏÂÔØ²å¼þ -->
-        <pluginRepository>  
-        	<!-- ²å¼þ²Ö¿âµÄid²»ÔÊÐíÖØ¸´£¬Èç¹ûÖØ¸´ºó±ßÅäÖÃ»á¸²¸ÇÇ°±ß -->
-            <id>public</id>  
-            <name>Public Repositories</name>  
-            <url>http://localhost:8081/nexus/content/groups/public/</url>  
-        </pluginRepository>  
-    </pluginRepositories>  
-  </profile>  
+	<profile>
+	<!--profileçš„id-->
+   <id>dev</id>
+    <repositories>
+      <repository>
+		<!--ä»“åº“idï¼Œrepositorieså¯ä»¥é…ç½®å¤šä¸ªä»“åº“ï¼Œä¿è¯idä¸é‡å¤-->
+        <id>nexus</id>
+		<!--ä»“åº“åœ°å€ï¼Œå³nexusä»“åº“ç»„çš„åœ°å€-->
+        <url>http://localhost:8081/nexus/content/groups/public/</url>
+		<!--æ˜¯å¦ä¸‹è½½releasesæž„ä»¶-->
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+		<!--æ˜¯å¦ä¸‹è½½snapshotsæž„ä»¶-->
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+	 <pluginRepositories>
+    	<!-- æ’ä»¶ä»“åº“ï¼Œmavençš„è¿è¡Œä¾èµ–æ’ä»¶ï¼Œä¹Ÿéœ€è¦ä»Žç§æœä¸‹è½½æ’ä»¶ -->
+        <pluginRepository>
+        	<!-- æ’ä»¶ä»“åº“çš„idä¸å…è®¸é‡å¤ï¼Œå¦‚æžœé‡å¤åŽè¾¹é…ç½®ä¼šè¦†ç›–å‰è¾¹ -->
+            <id>public</id>
+            <name>Public Repositories</name>
+            <url>http://localhost:8081/nexus/content/groups/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+  </profile>
 
   </profiles>
 
