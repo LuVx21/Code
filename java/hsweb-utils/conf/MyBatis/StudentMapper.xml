@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace属性是名称空间, 必须唯一 -->
+<mapper namespace="me.ren.javaee.mybatis.app04.Student">
+
+    <!--
+         resultMap标签:映射实体与表
+         type属性:表示实体全路径名, 下面使用了别名, 对应配置文件<typeAliases></typeAliases>标签
+         id属性:为实体与表的映射取一个任意的唯一的名字
+    -->
+    <resultMap type="student" id="studentMap">
+        <!--
+             id标签:映射主键属性
+             result标签:映射非主键属性
+             property属性:实体的属性名
+             column属性:表的字段名
+        -->
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="sal" column="sal"/>
+    </resultMap>
+
+    <!--
+        insert标签:要书写insert sql语句, 类似还有select, delete, update等
+        id属性:为insert, sql语句取一个任意唯一的名字
+        parameterType:要执行的dao中的方法的参数,
+            如查询时候, 根据什么查询就是什么数据类型,
+            如果是类的话, 必须使用全路径类, 下面的student对应配置文件中<typeAliases></typeAliases>标签.
+        还有resultType属性, 定义返回值的类型.
+    -->
+    <insert id="add1">
+        insert into students(id, name, sal) values(1, '哈哈', 7000)
+    </insert>
+
+    <insert id="add2" parameterType="student">
+        insert into students(id, name, sal) values(#{id}, #{name}, #{sal})
+    </insert>
+    <!-- 无参数分页查询 -->
+    <select id="findAllWithFy" parameterType="map" resultType="me.ren.mybatis.app10.Student">
+        select id, name, sal from students limit #{pstart}, #{psize}
+    </select>
+    <!-- 有参数分页查询 -->
+    <select id="findAllByNameWithFy" parameterType="map" resultType="me.ren.mybatis.app10.Student">
+        select id, name, sal from students where name like #{pname} limit #{pstart}, #{psize}
+    </select>
+    <!-- 动态查询 -->
+    <select id="dynaSQLwithSelect" parameterType="map" resultType="me.ren.mybatis.app11.Student">
+        select id, name, sal from students
+        <where>
+            <if test="pname!=null">
+                and name=#{pname}
+            </if>
+            <if test="psal!=null">
+                and sal=#{psal}
+            </if>
+        </where>
+    </select>
+    <!-- 动态查询--更新 -->
+    <update id="dynaSQLwithUpdate" parameterType="me.ren.mybatis.app12.Student">
+        update students
+        <set>
+            <if test="name!=null">
+                name=#{name},
+            </if>
+            <if test="sal!=null">
+                sal=#{sal},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+
+    <!-- 动态SQL--删除 -->
+    <!-- item表示迭代的参数 -->
+    <delete id="dynaSQLwithDelete">
+        delete from students where id in
+        <!--
+             foreach用于迭代数组元素
+             open表示开始符号
+             close表示结束符合
+             separator表示元素间的分隔符
+             item表示迭代的数组, 属性值可以任意, 但提倡与方法的数组名相同
+             #{ids}表示数组中的每个元素值
+         -->
+        <!--
+        <foreach collection="array" open="(" close=")" separator="," item="ids">
+            ${ids}
+        </foreach>
+        -->
+        <foreach collection="list" open="(" close=")" separator="," item="ids">
+            ${ids}
+        </foreach>
+    </delete>
+
+    <!-- 动态SQL--插入 START-->
+    <sql id="key">
+        <trim suffixOverrides=", ">
+            <if test="id!=null">
+                id,
+            </if>
+            <if test="name!=null">
+                name,
+            </if>
+            <if test="sal!=null">
+                sal,
+            </if>
+        </trim>
+    </sql>
+    <sql id="value">
+        <trim suffixOverrides=", ">
+            <if test="id!=null">
+                #{id},
+            </if>
+            <if test="name!=null">
+                #{name},
+            </if>
+            <if test="sal!=null">
+                #{sal},
+            </if>
+        </trim>
+    </sql>
+    <insert id="dynaSQLwithInsert" parameterType="me.ren.mybatis.app14.Student">
+        insert into students(<include refid="key"/>) values(<include refid="value"/>)
+    </insert>
+    <!-- 动态SQL--插入 END-->
+
+</mapper>
