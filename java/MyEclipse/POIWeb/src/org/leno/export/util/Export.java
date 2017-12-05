@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author leno Ê¹ÓÃservletµ¼³ö¶¯Ì¬Éú³ÉµÄexcelÎÄ¼ş£¬Êı¾İ¿ÉÒÔÀ´Ô´ÓÚÊı¾İ¿â
- *         ÕâÑù£¬ä¯ÀÀÆ÷¿Í»§¶Ë¾Í¿ÉÒÔ·ÃÎÊ¸ÃservletµÃµ½Ò»·İÓÃjava´úÂë¶¯Ì¬Éú³ÉµÄexcelÎÄ¼ş
+ * @author leno ä½¿ç”¨servletå¯¼å‡ºåŠ¨æ€ç”Ÿæˆçš„excelæ–‡ä»¶ï¼Œæ•°æ®å¯ä»¥æ¥æºäºæ•°æ®åº“
+ *         è¿™æ ·ï¼Œæµè§ˆå™¨å®¢æˆ·ç«¯å°±å¯ä»¥è®¿é—®è¯¥servletå¾—åˆ°ä¸€ä»½ç”¨javaä»£ç åŠ¨æ€ç”Ÿæˆçš„excelæ–‡ä»¶
  */
 public class Export extends javax.servlet.http.HttpServlet {
 	static final long serialVersionUID = 1L;
@@ -20,25 +20,25 @@ public class Export extends javax.servlet.http.HttpServlet {
 		File file = new File(getServletContext().getRealPath("WEB-INF/book.jpg"));
 		response.setContentType("octets/stream");
 		response.addHeader("Content-Disposition", "attachment;filename=test.xls");
-		// ²âÊÔÍ¼Êé
+		// æµ‹è¯•å›¾ä¹¦
 		ExportExcel<Book> ex = new ExportExcel<Book>();
-		String[] headers = { "Í¼Êé±àºÅ", "Í¼ÊéÃû³Æ", "Í¼Êé×÷Õß", "Í¼Êé¼Û¸ñ", "Í¼ÊéISBN", "Í¼Êé³ö°æÉç", "·âÃæÍ¼Æ¬" };
+		String[] headers = { "å›¾ä¹¦ç¼–å·", "å›¾ä¹¦åç§°", "å›¾ä¹¦ä½œè€…", "å›¾ä¹¦ä»·æ ¼", "å›¾ä¹¦ISBN", "å›¾ä¹¦å‡ºç‰ˆç¤¾", "å°é¢å›¾ç‰‡" };
 		List<Book> dataset = new ArrayList<Book>();
 		try {
 			BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
 			byte[] buf = new byte[bis.available()];
 			while ((bis.read(buf)) != -1) {
-				// ½«Í¼Æ¬Êı¾İ´æ·Åµ½»º³åÊı×éÖĞ
+				// å°†å›¾ç‰‡æ•°æ®å­˜æ”¾åˆ°ç¼“å†²æ•°ç»„ä¸­
 			}
-			dataset.add(new Book(1, "jsp", "leno", 300.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset.add(new Book(2, "java±à³ÌË¼Ïë", "brucl", 300.33f, "1234567", "Ñô¹â³ö°æÉç", buf));
-			dataset.add(new Book(3, "DOMÒÕÊõ", "lenotang", 300.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset.add(new Book(4, "c++¾­µä", "leno", 400.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset.add(new Book(5, "c#ÈëÃÅ", "leno", 300.33f, "1234567", "ÌÀ´ºĞã³ö°æÉç", buf));
+			dataset.add(new Book(1, "jsp", "leno", 300.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset.add(new Book(2, "javaç¼–ç¨‹æ€æƒ³", "brucl", 300.33f, "1234567", "é˜³å…‰å‡ºç‰ˆç¤¾", buf));
+			dataset.add(new Book(3, "DOMè‰ºæœ¯", "lenotang", 300.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset.add(new Book(4, "c++ç»å…¸", "leno", 400.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset.add(new Book(5, "c#å…¥é—¨", "leno", 300.33f, "1234567", "æ±¤æ˜¥ç§€å‡ºç‰ˆç¤¾", buf));
 			OutputStream out = response.getOutputStream();
 			ex.exportExcel(headers, dataset, out);
 			out.close();
-			System.out.println("excelµ¼³ö³É¹¦£¡");
+			System.out.println("excelå¯¼å‡ºæˆåŠŸï¼");
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

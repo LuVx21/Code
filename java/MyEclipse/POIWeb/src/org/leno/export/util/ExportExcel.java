@@ -34,55 +34,55 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.ClientAnchor;
 
 /**
- * ÀûÓÃ¿ªÔ´×é¼şPOI3.0.2¶¯Ì¬µ¼³öEXCELÎÄµµ ×ªÔØÊ±Çë±£ÁôÒÔÏÂĞÅÏ¢£¬×¢Ã÷³ö´¦£¡
+ * åˆ©ç”¨å¼€æºç»„ä»¶POI3.0.2åŠ¨æ€å¯¼å‡ºEXCELæ–‡æ¡£ è½¬è½½æ—¶è¯·ä¿ç•™ä»¥ä¸‹ä¿¡æ¯ï¼Œæ³¨æ˜å‡ºå¤„ï¼
  * 
  * @author leno
  * @version v1.0
  * @param <T>
- *            Ó¦ÓÃ·ºĞÍ£¬´ú±íÈÎÒâÒ»¸ö·ûºÏjavabean·ç¸ñµÄÀà
- *            ×¢ÒâÕâÀïÎªÁË¼òµ¥Æğ¼û£¬booleanĞÍµÄÊôĞÔxxxµÄgetÆ÷·½Ê½ÎªgetXxx(),¶ø²»ÊÇisXxx()
- *            byte[]±íjpg¸ñÊ½µÄÍ¼Æ¬Êı¾İ
+ *            åº”ç”¨æ³›å‹ï¼Œä»£è¡¨ä»»æ„ä¸€ä¸ªç¬¦åˆjavabeané£æ ¼çš„ç±»
+ *            æ³¨æ„è¿™é‡Œä¸ºäº†ç®€å•èµ·è§ï¼Œbooleanå‹çš„å±æ€§xxxçš„getå™¨æ–¹å¼ä¸ºgetXxx(),è€Œä¸æ˜¯isXxx()
+ *            byte[]è¡¨jpgæ ¼å¼çš„å›¾ç‰‡æ•°æ®
  */
 public class ExportExcel<T> {
 
 	public void exportExcel(Collection<T> dataset, OutputStream out) {
-		exportExcel("²âÊÔPOIµ¼³öEXCELÎÄµµ", null, dataset, out, "yyyy-MM-dd");
+		exportExcel("æµ‹è¯•POIå¯¼å‡ºEXCELæ–‡æ¡£", null, dataset, out, "yyyy-MM-dd");
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset, OutputStream out) {
-		exportExcel("²âÊÔPOIµ¼³öEXCELÎÄµµ", headers, dataset, out, "yyyy-MM-dd");
+		exportExcel("æµ‹è¯•POIå¯¼å‡ºEXCELæ–‡æ¡£", headers, dataset, out, "yyyy-MM-dd");
 	}
 
 	public void exportExcel(String[] headers, Collection<T> dataset, OutputStream out, String pattern) {
-		exportExcel("²âÊÔPOIµ¼³öEXCELÎÄµµ", headers, dataset, out, pattern);
+		exportExcel("æµ‹è¯•POIå¯¼å‡ºEXCELæ–‡æ¡£", headers, dataset, out, pattern);
 	}
 
 	/**
-	 * ÕâÊÇÒ»¸öÍ¨ÓÃµÄ·½·¨£¬ÀûÓÃÁËJAVAµÄ·´Éä»úÖÆ£¬¿ÉÒÔ½«·ÅÖÃÔÚJAVA¼¯ºÏÖĞ²¢ÇÒ·ûºÅÒ»¶¨Ìõ¼şµÄÊı¾İÒÔEXCEL µÄĞÎÊ½Êä³öµ½Ö¸¶¨IOÉè±¸ÉÏ
+	 * è¿™æ˜¯ä¸€ä¸ªé€šç”¨çš„æ–¹æ³•ï¼Œåˆ©ç”¨äº†JAVAçš„åå°„æœºåˆ¶ï¼Œå¯ä»¥å°†æ”¾ç½®åœ¨JAVAé›†åˆä¸­å¹¶ä¸”ç¬¦å·ä¸€å®šæ¡ä»¶çš„æ•°æ®ä»¥EXCEL çš„å½¢å¼è¾“å‡ºåˆ°æŒ‡å®šIOè®¾å¤‡ä¸Š
 	 * 
 	 * @param title
-	 *            ±í¸ñ±êÌâÃû
+	 *            è¡¨æ ¼æ ‡é¢˜å
 	 * @param headers
-	 *            ±í¸ñÊôĞÔÁĞÃûÊı×é
+	 *            è¡¨æ ¼å±æ€§åˆ—åæ•°ç»„
 	 * @param dataset
-	 *            ĞèÒªÏÔÊ¾µÄÊı¾İ¼¯ºÏ,¼¯ºÏÖĞÒ»¶¨Òª·ÅÖÃ·ûºÏjavabean·ç¸ñµÄÀàµÄ¶ÔÏó¡£´Ë·½·¨Ö§³ÖµÄ
-	 *            javabeanÊôĞÔµÄÊı¾İÀàĞÍÓĞ»ù±¾Êı¾İÀàĞÍ¼°String,Date,byte[](Í¼Æ¬Êı¾İ)
+	 *            éœ€è¦æ˜¾ç¤ºçš„æ•°æ®é›†åˆ,é›†åˆä¸­ä¸€å®šè¦æ”¾ç½®ç¬¦åˆjavabeané£æ ¼çš„ç±»çš„å¯¹è±¡ã€‚æ­¤æ–¹æ³•æ”¯æŒçš„
+	 *            javabeanå±æ€§çš„æ•°æ®ç±»å‹æœ‰åŸºæœ¬æ•°æ®ç±»å‹åŠString,Date,byte[](å›¾ç‰‡æ•°æ®)
 	 * @param out
-	 *            ÓëÊä³öÉè±¸¹ØÁªµÄÁ÷¶ÔÏó£¬¿ÉÒÔ½«EXCELÎÄµµµ¼³öµ½±¾µØÎÄ¼ş»òÕßÍøÂçÖĞ
+	 *            ä¸è¾“å‡ºè®¾å¤‡å…³è”çš„æµå¯¹è±¡ï¼Œå¯ä»¥å°†EXCELæ–‡æ¡£å¯¼å‡ºåˆ°æœ¬åœ°æ–‡ä»¶æˆ–è€…ç½‘ç»œä¸­
 	 * @param pattern
-	 *            Èç¹ûÓĞÊ±¼äÊı¾İ£¬Éè¶¨Êä³ö¸ñÊ½¡£Ä¬ÈÏÎª"yyy-MM-dd"
+	 *            å¦‚æœæœ‰æ—¶é—´æ•°æ®ï¼Œè®¾å®šè¾“å‡ºæ ¼å¼ã€‚é»˜è®¤ä¸º"yyy-MM-dd"
 	 */
 	@SuppressWarnings("unchecked")
 	public void exportExcel(String title, String[] headers, Collection<T> dataset, OutputStream out, String pattern) {
-		// ÉùÃ÷Ò»¸ö¹¤×÷±¡
+		// å£°æ˜ä¸€ä¸ªå·¥ä½œè–„
 		HSSFWorkbook workbook = new HSSFWorkbook();
-		// Éú³ÉÒ»¸ö±í¸ñ
+		// ç”Ÿæˆä¸€ä¸ªè¡¨æ ¼
 		HSSFSheet sheet = workbook.createSheet(title);
-		// ÉèÖÃ±í¸ñÄ¬ÈÏÁĞ¿í¶ÈÎª15¸ö×Ö½Ú
+		// è®¾ç½®è¡¨æ ¼é»˜è®¤åˆ—å®½åº¦ä¸º15ä¸ªå­—èŠ‚
 		sheet.setDefaultColumnWidth((short) 15);
-		// Éú³ÉÒ»¸öÑùÊ½
+		// ç”Ÿæˆä¸€ä¸ªæ ·å¼
 		HSSFCellStyle style = workbook.createCellStyle();
-		// ÉèÖÃÕâĞ©ÑùÊ½
+		// è®¾ç½®è¿™äº›æ ·å¼
 		style.setFillForegroundColor(HSSFColor.SKY_BLUE.index);
 		style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
 		style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
@@ -90,14 +90,14 @@ public class ExportExcel<T> {
 		style.setBorderRight(HSSFCellStyle.BORDER_THIN);
 		style.setBorderTop(HSSFCellStyle.BORDER_THIN);
 		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-		// Éú³ÉÒ»¸ö×ÖÌå
+		// ç”Ÿæˆä¸€ä¸ªå­—ä½“
 		HSSFFont font = workbook.createFont();
 		font.setColor(HSSFColor.VIOLET.index);
 		font.setFontHeightInPoints((short) 12);
 		font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD);
-		// °Ñ×ÖÌåÓ¦ÓÃµ½µ±Ç°µÄÑùÊ½
+		// æŠŠå­—ä½“åº”ç”¨åˆ°å½“å‰çš„æ ·å¼
 		style.setFont(font);
-		// Éú³É²¢ÉèÖÃÁíÒ»¸öÑùÊ½
+		// ç”Ÿæˆå¹¶è®¾ç½®å¦ä¸€ä¸ªæ ·å¼
 		HSSFCellStyle style2 = workbook.createCellStyle();
 		style2.setFillForegroundColor(HSSFColor.LIGHT_YELLOW.index);
 		style2.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
@@ -107,22 +107,22 @@ public class ExportExcel<T> {
 		style2.setBorderTop(HSSFCellStyle.BORDER_THIN);
 		style2.setAlignment(HSSFCellStyle.ALIGN_CENTER);
 		style2.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
-		// Éú³ÉÁíÒ»¸ö×ÖÌå
+		// ç”Ÿæˆå¦ä¸€ä¸ªå­—ä½“
 		HSSFFont font2 = workbook.createFont();
 		font2.setBoldweight(HSSFFont.BOLDWEIGHT_NORMAL);
-		// °Ñ×ÖÌåÓ¦ÓÃµ½µ±Ç°µÄÑùÊ½
+		// æŠŠå­—ä½“åº”ç”¨åˆ°å½“å‰çš„æ ·å¼
 		style2.setFont(font2);
 
-		// ÉùÃ÷Ò»¸ö»­Í¼µÄ¶¥¼¶¹ÜÀíÆ÷
+		// å£°æ˜ä¸€ä¸ªç”»å›¾çš„é¡¶çº§ç®¡ç†å™¨
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
-		// ¶¨Òå×¢ÊÍµÄ´óĞ¡ºÍÎ»ÖÃ,Ïê¼ûÎÄµµ
+		// å®šä¹‰æ³¨é‡Šçš„å¤§å°å’Œä½ç½®,è¯¦è§æ–‡æ¡£
 		HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0, 0, 0, 0, (short) 4, 2, (short) 6, 5));
-		// ÉèÖÃ×¢ÊÍÄÚÈİ
-		comment.setString(new HSSFRichTextString("¿ÉÒÔÔÚPOIÖĞÌí¼Ó×¢ÊÍ£¡"));
-		// ÉèÖÃ×¢ÊÍ×÷Õß£¬µ±Êó±êÒÆ¶¯µ½µ¥Ôª¸ñÉÏÊÇ¿ÉÒÔÔÚ×´Ì¬À¸ÖĞ¿´µ½¸ÃÄÚÈİ.
+		// è®¾ç½®æ³¨é‡Šå†…å®¹
+		comment.setString(new HSSFRichTextString("å¯ä»¥åœ¨POIä¸­æ·»åŠ æ³¨é‡Šï¼"));
+		// è®¾ç½®æ³¨é‡Šä½œè€…ï¼Œå½“é¼ æ ‡ç§»åŠ¨åˆ°å•å…ƒæ ¼ä¸Šæ˜¯å¯ä»¥åœ¨çŠ¶æ€æ ä¸­çœ‹åˆ°è¯¥å†…å®¹.
 		comment.setAuthor("leno");
 
-		// ²úÉú±í¸ñ±êÌâĞĞ
+		// äº§ç”Ÿè¡¨æ ¼æ ‡é¢˜è¡Œ
 		HSSFRow row = sheet.createRow(0);
 		for (short i = 0; i < headers.length; i++) {
 			HSSFCell cell = row.createCell(i);
@@ -131,14 +131,14 @@ public class ExportExcel<T> {
 			cell.setCellValue(text);
 		}
 
-		// ±éÀú¼¯ºÏÊı¾İ£¬²úÉúÊı¾İĞĞ
+		// éå†é›†åˆæ•°æ®ï¼Œäº§ç”Ÿæ•°æ®è¡Œ
 		Iterator<T> it = dataset.iterator();
 		int index = 0;
 		while (it.hasNext()) {
 			index++;
 			row = sheet.createRow(index);
 			T t = (T) it.next();
-			// ÀûÓÃ·´Éä£¬¸ù¾İjavabeanÊôĞÔµÄÏÈºóË³Ğò£¬¶¯Ì¬µ÷ÓÃgetXxx()·½·¨µÃµ½ÊôĞÔÖµ
+			// åˆ©ç”¨åå°„ï¼Œæ ¹æ®javabeanå±æ€§çš„å…ˆåé¡ºåºï¼ŒåŠ¨æ€è°ƒç”¨getXxx()æ–¹æ³•å¾—åˆ°å±æ€§å€¼
 			Field[] fields = t.getClass().getDeclaredFields();
 			for (short i = 0; i < fields.length; i++) {
 				HSSFCell cell = row.createCell(i);
@@ -150,7 +150,7 @@ public class ExportExcel<T> {
 					Class tCls = t.getClass();
 					Method getMethod = tCls.getMethod(getMethodName, new Class[] {});
 					Object value = getMethod.invoke(t, new Object[] {});
-					// ÅĞ¶ÏÖµµÄÀàĞÍºó½øĞĞÇ¿ÖÆÀàĞÍ×ª»»
+					// åˆ¤æ–­å€¼çš„ç±»å‹åè¿›è¡Œå¼ºåˆ¶ç±»å‹è½¬æ¢
 					String textValue = null;
 					// if (value instanceof Integer) {
 					// int intValue = (Integer) value;
@@ -171,18 +171,18 @@ public class ExportExcel<T> {
 					// }
 					if (value instanceof Boolean) {
 						boolean bValue = (Boolean) value;
-						textValue = "ÄĞ";
+						textValue = "ç”·";
 						if (!bValue) {
-							textValue = "Å®";
+							textValue = "å¥³";
 						}
 					} else if (value instanceof Date) {
 						Date date = (Date) value;
 						SimpleDateFormat sdf = new SimpleDateFormat(pattern);
 						textValue = sdf.format(date);
 					} else if (value instanceof byte[]) {
-						// ÓĞÍ¼Æ¬Ê±£¬ÉèÖÃĞĞ¸ßÎª60px;
+						// æœ‰å›¾ç‰‡æ—¶ï¼Œè®¾ç½®è¡Œé«˜ä¸º60px;
 						row.setHeightInPoints(60);
-						// ÉèÖÃÍ¼Æ¬ËùÔÚÁĞ¿í¶ÈÎª80px,×¢ÒâÕâÀïµ¥Î»µÄÒ»¸ö»»Ëã
+						// è®¾ç½®å›¾ç‰‡æ‰€åœ¨åˆ—å®½åº¦ä¸º80px,æ³¨æ„è¿™é‡Œå•ä½çš„ä¸€ä¸ªæ¢ç®—
 						sheet.setColumnWidth(i, (short) (35.7 * 80));
 						// sheet.autoSizeColumn(i);
 						byte[] bsValue = (byte[]) value;
@@ -191,15 +191,15 @@ public class ExportExcel<T> {
 						anchor.setAnchorType(ClientAnchor.AnchorType.MOVE_DONT_RESIZE );
 						patriarch.createPicture(anchor, workbook.addPicture(bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
 					} else {
-						// ÆäËüÊı¾İÀàĞÍ¶¼µ±×÷×Ö·û´®¼òµ¥´¦Àí
+						// å…¶å®ƒæ•°æ®ç±»å‹éƒ½å½“ä½œå­—ç¬¦ä¸²ç®€å•å¤„ç†
 						textValue = value.toString();
 					}
-					// Èç¹û²»ÊÇÍ¼Æ¬Êı¾İ£¬¾ÍÀûÓÃÕıÔò±í´ïÊ½ÅĞ¶ÏtextValueÊÇ·ñÈ«²¿ÓÉÊı×Ö×é³É
+					// å¦‚æœä¸æ˜¯å›¾ç‰‡æ•°æ®ï¼Œå°±åˆ©ç”¨æ­£åˆ™è¡¨è¾¾å¼åˆ¤æ–­textValueæ˜¯å¦å…¨éƒ¨ç”±æ•°å­—ç»„æˆ
 					if (textValue != null) {
 						Pattern p = Pattern.compile("^//d+(//.//d+)?$");
 						Matcher matcher = p.matcher(textValue);
 						if (matcher.matches()) {
-							// ÊÇÊı×Öµ±×÷double´¦Àí
+							// æ˜¯æ•°å­—å½“ä½œdoubleå¤„ç†
 							cell.setCellValue(Double.parseDouble(textValue));
 						} else {
 							HSSFRichTextString richString = new HSSFRichTextString(textValue);
@@ -220,7 +220,7 @@ public class ExportExcel<T> {
 				} catch (InvocationTargetException e) {
 					e.printStackTrace();
 				} finally {
-					// ÇåÀí×ÊÔ´
+					// æ¸…ç†èµ„æº
 				}
 			}
 
@@ -234,16 +234,16 @@ public class ExportExcel<T> {
 	}
 
 	public static void main(String[] args) {
-		// ²âÊÔÑ§Éú
+		// æµ‹è¯•å­¦ç”Ÿ
 		ExportExcel<Student> ex = new ExportExcel<Student>();
-		String[] headers = { "Ñ§ºÅ", "ĞÕÃû", "ÄêÁä", "ĞÔ±ğ", "³öÉúÈÕÆÚ" };
+		String[] headers = { "å­¦å·", "å§“å", "å¹´é¾„", "æ€§åˆ«", "å‡ºç”Ÿæ—¥æœŸ" };
 		List<Student> dataset = new ArrayList<Student>();
-		dataset.add(new Student(10000001, "ÕÅÈı", 20, true, new Date()));
-		dataset.add(new Student(20000002, "ÀîËÄ", 24, false, new Date()));
-		dataset.add(new Student(30000003, "ÍõÎå", 22, true, new Date()));
-		// ²âÊÔÍ¼Êé
+		dataset.add(new Student(10000001, "å¼ ä¸‰", 20, true, new Date()));
+		dataset.add(new Student(20000002, "æå››", 24, false, new Date()));
+		dataset.add(new Student(30000003, "ç‹äº”", 22, true, new Date()));
+		// æµ‹è¯•å›¾ä¹¦
 		ExportExcel<Book> ex2 = new ExportExcel<Book>();
-		String[] headers2 = { "Í¼Êé±àºÅ", "Í¼ÊéÃû³Æ", "Í¼Êé×÷Õß", "Í¼Êé¼Û¸ñ", "Í¼ÊéISBN", "Í¼Êé³ö°æÉç", "·âÃæÍ¼Æ¬" };
+		String[] headers2 = { "å›¾ä¹¦ç¼–å·", "å›¾ä¹¦åç§°", "å›¾ä¹¦ä½œè€…", "å›¾ä¹¦ä»·æ ¼", "å›¾ä¹¦ISBN", "å›¾ä¹¦å‡ºç‰ˆç¤¾", "å°é¢å›¾ç‰‡" };
 		List<Book> dataset2 = new ArrayList<Book>();
 		try {
 			BufferedInputStream bis = new BufferedInputStream(new FileInputStream("book.jpg"));
@@ -251,19 +251,19 @@ public class ExportExcel<T> {
 			while ((bis.read(buf)) != -1) {
 				//
 			}
-			dataset2.add(new Book(1, "jsp", "leno", 300.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset2.add(new Book(2, "java±à³ÌË¼Ïë", "brucl", 300.33f, "1234567", "Ñô¹â³ö°æÉç", buf));
-			dataset2.add(new Book(3, "DOMÒÕÊõ", "lenotang", 300.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset2.add(new Book(4, "c++¾­µä", "leno", 400.33f, "1234567", "Çå»ª³ö°æÉç", buf));
-			dataset2.add(new Book(5, "c#ÈëÃÅ", "leno", 300.33f, "1234567", "ÌÀ´ºĞã³ö°æÉç", buf));
+			dataset2.add(new Book(1, "jsp", "leno", 300.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset2.add(new Book(2, "javaç¼–ç¨‹æ€æƒ³", "brucl", 300.33f, "1234567", "é˜³å…‰å‡ºç‰ˆç¤¾", buf));
+			dataset2.add(new Book(3, "DOMè‰ºæœ¯", "lenotang", 300.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset2.add(new Book(4, "c++ç»å…¸", "leno", 400.33f, "1234567", "æ¸…åå‡ºç‰ˆç¤¾", buf));
+			dataset2.add(new Book(5, "c#å…¥é—¨", "leno", 300.33f, "1234567", "æ±¤æ˜¥ç§€å‡ºç‰ˆç¤¾", buf));
 
 			OutputStream out = new FileOutputStream("E://a.xls");
 			OutputStream out2 = new FileOutputStream("E://b.xls");
 			ex.exportExcel(headers, dataset, out);
 			ex2.exportExcel(headers2, dataset2, out2);
 			out.close();
-			JOptionPane.showMessageDialog(null, "µ¼³ö³É¹¦!");
-			System.out.println("excelµ¼³ö³É¹¦£¡");
+			JOptionPane.showMessageDialog(null, "å¯¼å‡ºæˆåŠŸ!");
+			System.out.println("excelå¯¼å‡ºæˆåŠŸï¼");
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

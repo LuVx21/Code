@@ -1,8 +1,7 @@
-package sortsDemo;
 
 import java.util.Arrays;
 
-public class Test {
+public class Sorts {
 	public static void main(String[] args) {
 		int[] arr = { 43, 99, 38, 76, 65, 27, 17 };
 		// int[] arr = { 45, 32, 98, 74, 17, 53, 44, 61, 22 };
