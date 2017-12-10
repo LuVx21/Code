@@ -1,3 +1,4 @@
+brew install md5sha1sum
 brew install lynx
 brew install the_silver_searcher
 brew tap caskroom/cask
