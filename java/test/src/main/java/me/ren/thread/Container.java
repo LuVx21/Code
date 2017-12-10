@@ -1,4 +1,4 @@
-package cn.renxie;
+package me.ren.thread;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package cn.renxie;
+package me.ren.thread;
 
 public class Bread {
 

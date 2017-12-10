@@ -1,4 +1,4 @@
-package cn.test;
+package me.ren.pattern;
 
 public class Singleton {
 	private static Singleton INSTANCE;

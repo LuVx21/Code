@@ -1,11 +1,11 @@
-package com.example.lambda;
+package me.ren.Lambda;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
 /**
- * ²éÑ¯±ê×¼
+ * ï¿½ï¿½Ñ¯ï¿½ï¿½×¼
  * @author MikeW
  */
 public class SearchCriteria {

@@ -1,4 +1,4 @@
-package com.example.lambda;
+package me.ren.Lambda;
 
 /**
  * @author MikeW

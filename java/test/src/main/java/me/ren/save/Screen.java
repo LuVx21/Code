@@ -1,4 +1,4 @@
-package cn.test;
+package me.ren.save;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

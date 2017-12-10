@@ -1,4 +1,4 @@
-package me.ren;
+package me.ren.Lambda;
 
 public class Lambda {
 
@@ -21,11 +21,11 @@ interface MathOperation {
 // http://blog.csdn.net/renfufei/article/details/24600507/
 // http://blog.csdn.net/bitcarmanlee/article/details/70195403
 
-   interface MathOperation {
+   public interface MathOperation {
       int operation(int a, int b);
    }
 
-   interface GreetingService {
+   public interface GreetingService {
       void sayMessage(String message);
    }
 

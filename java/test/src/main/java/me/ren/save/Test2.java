@@ -1,4 +1,4 @@
-package cn.test;
+package me.ren.save;
 
 public class Test2 {
 	public static void main(String[] args) {

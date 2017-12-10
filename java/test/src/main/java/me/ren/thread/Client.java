@@ -1,4 +1,4 @@
-package cn.renxie;
+package me.ren.thread;
 
 // http://blog.csdn.net/luohuacanyue/article/list/1
 // http://blog.csdn.net/luohuacanyue/article/details/14648185

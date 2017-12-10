@@ -1,9 +1,10 @@
-package me.ren;
+package me.ren.Lambda;
 
 import org.junit.Test;
 
-import me.ren.Lambda.GreetingService;
-import me.ren.Lambda.MathOperation;
+import me.ren.Lambda.Lambda;
+import me.ren.Lambda.Lambda.GreetingService;
+import me.ren.Lambda.Lambda.MathOperation;
 
 public class LambdaTest {
 	
