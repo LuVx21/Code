@@ -1,4 +1,4 @@
-package me.ren.pattern;
+package me.ren.pattern.Singleton;
 
 public class Singleton {
 	private static Singleton INSTANCE;
