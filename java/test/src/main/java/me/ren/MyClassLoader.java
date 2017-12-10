@@ -1,3 +1,5 @@
+package me.ren;
+
 import java.io.*;
 
 public class MyClassLoader extends ClassLoader {

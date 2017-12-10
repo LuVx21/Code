@@ -45,6 +45,7 @@ $RECYCLE.BIN/
 *~
 *.class
 *.classpath
+.project
 
 # Package Files #
 *.jar

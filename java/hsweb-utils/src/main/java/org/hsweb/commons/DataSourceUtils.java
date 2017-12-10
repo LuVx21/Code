@@ -1,3 +1,5 @@
+package org.hsweb.commons;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;

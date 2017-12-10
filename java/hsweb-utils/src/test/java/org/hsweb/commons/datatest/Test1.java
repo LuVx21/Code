@@ -1,11 +1,10 @@
-package me.xieren;
+package org.hsweb.commons.datatest;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import Utils.JdbcUtil;
+import org.hsweb.commons.data.JdbcUtil;
 
 public class Test1 {
 	public static void main(String[] args) throws Exception {

@@ -1,4 +1,4 @@
-package Utils;
+package org.hsweb.commons.data;
 
 import java.io.IOException;
 import java.io.InputStream;

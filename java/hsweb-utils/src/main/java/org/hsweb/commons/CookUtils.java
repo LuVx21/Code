@@ -1,3 +1,4 @@
+package org.hsweb.commons;
 
 import javax.servlet.http.Cookie;
 

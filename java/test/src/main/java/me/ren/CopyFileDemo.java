@@ -1,4 +1,4 @@
-package cn.itcast_01;
+package me.ren;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
