@@ -1,4 +1,4 @@
-package org.luvx.SpringBoot;
+package org.luvx.SpringBoot.controller;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;

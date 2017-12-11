@@ -1,8 +1,11 @@
 package me.ren;
 
-import static org.junit.Assert.*;
-import org.junit.Test;
-
+/**
+ * 身份证最后一位为验证位, 模拟此验证位的产生
+ * 前17位已经确定的情况下,验证位也唯一确定
+ * @author renxie
+ *
+ */
 public class Id18 {
 	// 十七位数字本体码权重
 	int[] weight = { 7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2 };
@@ -20,19 +23,4 @@ public class Id18 {
 		return validate[mod];
 	}
 
-	@Test
-	public void testgetValidate() {
-		Id18 test1 = new Id18();
-		char result = test1.getValidateCode("14230219700101101");
-		// char --> int
-		int num = Integer.parseInt(String.valueOf(result));
-		assertEquals(3, num);
-	}
-
-	public static void main(String[] args) {
-		Id18 test = new Id18();
-		String id17 = "14230219700101101";
-		char result = test.getValidateCode(id17);
-		System.out.println("身份证验证码：" + result); // 该身份证校验码：3
-	}
 }

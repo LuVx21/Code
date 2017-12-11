@@ -25,18 +25,18 @@ public class JDemoTest {
 		System.out.println("in After");
 	}
 
-	@Test(timeout = 10000)
-	public void testadd() {
-		JDemo a = new JDemo();
-		assertEquals(6, a.add(3, 3));
-		System.out.println("in Test ----Add");
-	}
-
 	@Test
 	public void testdivision() {
 		JDemo a = new JDemo();
 		assertEquals(3, a.division(6, 2));
 		System.out.println("in Test ----Division");
+	}
+
+	@Test(timeout = 10000)
+	public void testadd() {
+		JDemo a = new JDemo();
+		assertEquals(6, a.add(3, 3));
+		System.out.println("in Test ----Add");
 	}
 
 	@Ignore
@@ -47,10 +47,14 @@ public class JDemoTest {
 		System.out.println("in test_ignore");
 	}
 
-	@Test
-	public void teest_fail() {
-		fail();
-	}
+	/**
+	 * 设置失败
+	 */
+	// @Test
+	// public void test_fail() {
+	// fail();
+	// }
+
 }
 
 class JDemo extends Thread {
