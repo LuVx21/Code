@@ -1,0 +1,23 @@
+package me.ren.Java8.StaticReference;
+
+
+public class Refrence {
+
+    private String name;
+
+    public Refrence() {
+    }
+
+    public Refrence(String name) {
+        this.name = name;
+    }
+
+    public String startsWith(String s) {
+        return String.valueOf(s.charAt(0));
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
+}

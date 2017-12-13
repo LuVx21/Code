@@ -1,8 +1,7 @@
-package me.ren.callbackTest;
+package me.ren.callback;
 
 import java.util.Arrays;
 
-import me.ren.callback.Callback1;
 import org.junit.Test;
 
 public class CallbackTest1 {

@@ -1,4 +1,4 @@
-package me.ren.Lambda;
+package me.ren.Java8.Lambda;
 
 import java.util.HashMap;
 import java.util.Map;

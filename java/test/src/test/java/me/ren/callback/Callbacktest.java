@@ -1,7 +1,5 @@
-package me.ren.callbackTest;
+package me.ren.callback;
 
-import me.ren.callback.Callbackimpl;
-import me.ren.callback.Callerimpl;
 import org.junit.Test;
 
 public class Callbacktest {

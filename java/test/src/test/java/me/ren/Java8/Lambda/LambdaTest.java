@@ -1,10 +1,8 @@
-package me.ren.Lambda;
+package me.ren.Java8.Lambda;
 
+import me.ren.Java8.Lambda.Lambda.GreetingService;
+import me.ren.Java8.Lambda.Lambda.MathOperation;
 import org.junit.Test;
-
-import me.ren.Lambda.Lambda;
-import me.ren.Lambda.Lambda.GreetingService;
-import me.ren.Lambda.Lambda.MathOperation;
 
 public class LambdaTest {
 	
