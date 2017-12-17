@@ -4,16 +4,16 @@ import org.junit.Test;
 
 public class AdapterTest {
 
-	@Test
-	public void chargeTest() {
-		GBSocketInterface gbSocket = new GBSocket();
+    @Test
+    public void test1() {
+        GBSocketInterface gbSocket = new GBSocket();
+        SocketAdapter socketAdapter = new SocketAdapter(gbSocket);
+        socketAdapter.powerWithTwoRound();
+    }
 
-		Hotel hotel = new Hotel();
-
-		SocketAdapter socketAdapter = new SocketAdapter(gbSocket);
-
-		hotel.setSocket(socketAdapter);
-
-		hotel.charge();
-	}
+    @Test
+    public void test2() {
+        SocketAdapter1 socketAdapter = new SocketAdapter1();
+        socketAdapter.powerWithTwoRound();
+    }
 }

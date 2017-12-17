@@ -1,7 +1,7 @@
 package me.ren.pattern.Adapter;
 
 /**
- * 中国插座
+ * 符合中国标准的插座(三口扁行插座)
  */
 public class GBSocket implements GBSocketInterface{
 	

@@ -1,11 +1,12 @@
 package me.ren.pattern.Adapter;
 
-/** 
- * 德国插座 
- */  
-public class DBSocket implements DBSocketInterface{  
-      
-    public void powerWithTwoRound(){  
-        System.out.println("使用两项圆头的插孔供电");  
-    }  
-}  
+
+/**
+ * 符合德国标准的插座(两口圆形)
+ */
+public class DBSocket implements DBSocketInterface {
+
+    public void powerWithTwoRound() {
+        System.out.println("使用两口圆头的插孔供电");
+    }
+}

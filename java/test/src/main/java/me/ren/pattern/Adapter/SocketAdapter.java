@@ -1,27 +1,29 @@
 package me.ren.pattern.Adapter;
 
-public class SocketAdapter  
-		implements DBSocketInterface{   //实现旧接口
 
-	//组合新接口
-	private GBSocketInterface gbSocket;
-	
-	/**
-	 * 在创建适配器对象时，必须传入一个新街口的实现类
-	 * @param gbSocket
-	 */
-	public SocketAdapter(GBSocketInterface gbSocket) {
-		this.gbSocket = gbSocket;
-	}
+/**
+ * 对象适配器
+ * 可以看做是在德标插座内部加上国标插座的零件
+ */
 
-	
-	/**
-	 * 将对就接口的调用适配到新接口
-	 */
-	@Override
-	public void powerWithTwoRound() {
-		
-		gbSocket.powerWithThreeFlat();
-	}
+
+public class SocketAdapter implements DBSocketInterface {
+    // 符合国标接口
+    private GBSocketInterface gbSocket;
+
+    /**
+     *以符合国标的创建适配器
+     */
+    public SocketAdapter(GBSocketInterface gbSocket) {
+        this.gbSocket = gbSocket;
+    }
+
+    /**
+     * 使其符合德国标准
+     */
+    @Override
+    public void powerWithTwoRound() {
+        gbSocket.powerWithThreeFlat();
+    }
 
 }

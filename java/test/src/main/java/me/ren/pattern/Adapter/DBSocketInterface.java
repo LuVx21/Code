@@ -1,13 +1,13 @@
 package me.ren.pattern.Adapter;
 
-/** 
- * 德标接口 
- */  
-public interface DBSocketInterface {  
-      
-    /** 
-     * 这个方法的名字叫做：使用两项圆头的插口供电 
-     * 本人英语就这个水平 
-     */  
-    void powerWithTwoRound();  
+
+// 基于此案例实现代码
+// http://blog.csdn.net/zhangjg_blog/article/details/18735243
+
+/**
+ * 德标接口
+ */
+public interface DBSocketInterface {
+    // 两口圆形插座
+    void powerWithTwoRound();
 }  
