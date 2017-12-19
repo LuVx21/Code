@@ -11,6 +11,7 @@ public class BuilderTest {
         Car car = director.build();
         System.out.println(car.getWheels());
         System.out.println(car.getEngine());
+        System.out.println(car.getSail());
     }
 
     /**
@@ -23,6 +24,7 @@ public class BuilderTest {
         Car car = director.build1(builder);
         System.out.println(car.getWheels());
         System.out.println(car.getEngine());
+        System.out.println(car.getSail());
     }
 
     @Test

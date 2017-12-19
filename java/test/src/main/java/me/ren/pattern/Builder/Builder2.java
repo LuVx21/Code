@@ -2,11 +2,11 @@ package me.ren.pattern.Builder;
 
 
 /**
- * 建造者模式
+ * 建造者模式(不存在指挥者的时候,实际上是将指挥者和抽象类合并在一起)
  * 建造者中有多个建造函数,用于创建复杂产品的组成部分
  * 还有一个返回创建对象的方法
  */
-public abstract class Builder {
+public abstract class Builder2 {
 
     protected Car car = new Car();
 
@@ -14,23 +14,15 @@ public abstract class Builder {
 
     public abstract void buildengine();
 
-    public abstract void buildsail();
-
-
-    //钩子方法
-
     /**
-     * 钩子方法,可以精细控制创建负载对象
-     * 当指定是敞篷车时,buildsail()则不会执行
-     * 是否有篷(敞篷车)
+     * 有参数的时候
      *
      * @return
      */
-    public boolean isConvertible() {
-        return true;
-    }
-
     public Car getCar() {
+        this.buildwheels();
+        this.buildengine();
+
         return car;
     }
 

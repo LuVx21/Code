@@ -4,6 +4,7 @@ public class Car {
 
     private String wheels;
     private String engine;
+    private String sail;
 
 
     public String getWheels() {
@@ -20,5 +21,13 @@ public class Car {
 
     public void setEngine(String engine) {
         this.engine = engine;
+    }
+
+    public String getSail() {
+        return sail;
+    }
+
+    public void setSail(String sail) {
+        this.sail = sail;
     }
 }
