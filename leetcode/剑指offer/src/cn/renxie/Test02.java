@@ -1,6 +1,6 @@
 package cn.renxie;
 /**
- * Author: Íõ¿¡³¬
+ * Author: ç‹ä¿Šè¶…
  * Date: 2015-04-21
  * Time: 13:58
  * Declaration: All Rights Reserved !!!
@@ -8,8 +8,8 @@ package cn.renxie;
 public class Test02 {
 
     /**
-     * µ¥ÀıÄ£Ê½£¬¶öººÊ½
-     * Ïß³Ì°²È«
+     * å•ä¾‹æ¨¡å¼ï¼Œé¥¿æ±‰å¼
+     * çº¿ç¨‹å®‰å…¨
      */
     public static class Singleton {
         private final static Singleton INSTANCE = new Singleton();
@@ -24,8 +24,8 @@ public class Test02 {
     }
 
     /**
-     * µ¥ÀıÄ£Ê½£¬ÀÁººÊ½
-     * Ïß³Ì²»°²È«
+     * å•ä¾‹æ¨¡å¼ï¼Œæ‡’æ±‰å¼
+     * çº¿ç¨‹ä¸å®‰å…¨
      */
     public static class Singleton2 {
         private static Singleton2 instance = null;
@@ -43,9 +43,9 @@ public class Test02 {
 
 
     /**
-     * µ¥ÀıÄ£Ê½£¬ÀÁººÊ½
-     * Ïß³Ì°²È«
-     * ¶àÏß³Ì»·¾³ÏÂĞ§ÂÊ²»¸ß
+     * å•ä¾‹æ¨¡å¼ï¼Œæ‡’æ±‰å¼
+     * çº¿ç¨‹å®‰å…¨
+     * å¤šçº¿ç¨‹ç¯å¢ƒä¸‹æ•ˆç‡ä¸é«˜
      */
     public static class Singleton3 {
         private static Singleton3 instance = null;
@@ -62,8 +62,8 @@ public class Test02 {
     }
 
     /**
-     * µ¥ÀıÄ£Ê½£¬¶öººÊ½
-     * ±äÖÖ£¬Ïß³Ì°²È«
+     * å•ä¾‹æ¨¡å¼ï¼Œé¥¿æ±‰å¼
+     * å˜ç§ï¼Œçº¿ç¨‹å®‰å…¨
      */
     public static class Singleton4 {
         private static Singleton4 instance = null;
@@ -81,9 +81,9 @@ public class Test02 {
     }
 
     /**
-     * µ¥ÀıÄ£Ê½£¬ÀÁººÊ½
-     * ¾²Ì¬ÄÚ²¿Àà
-     * Ïß³Ì°²È«¡¾ÍÆ¼ö¡¿
+     * å•ä¾‹æ¨¡å¼ï¼Œæ‡’æ±‰å¼
+     * é™æ€å†…éƒ¨ç±»
+     * çº¿ç¨‹å®‰å…¨ã€æ¨èã€‘
      */
     public static class Singleton5 {
         private final static class SingletonHolder {
@@ -99,8 +99,8 @@ public class Test02 {
     }
 
     /**
-     * Ê¹ÓÃÃ¶¾Ù·½Ê½
-     * Ïß³Ì°²È«¡¾ÍÆ¼ö¡¿
+     * ä½¿ç”¨æšä¸¾æ–¹å¼
+     * çº¿ç¨‹å®‰å…¨ã€æ¨èã€‘
      */
     public enum Singleton6 {
         INSTANCE;
@@ -110,8 +110,8 @@ public class Test02 {
     }
 
     /**
-     * Ë«ÖØĞ£ÑéËø
-     * Ïß³Ì°²È«¡¾ÍÆ¼ö¡¿
+     * åŒé‡æ ¡éªŒé”
+     * çº¿ç¨‹å®‰å…¨ã€æ¨èã€‘
      */
     public static class Singleton7 {
         private volatile static Singleton7 instance = null;
