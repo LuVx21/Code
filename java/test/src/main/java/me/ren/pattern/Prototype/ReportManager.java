@@ -8,7 +8,7 @@ import java.util.Hashtable;
 public class ReportManager {
 
     //定义一个Hashtable，用于存储原型对象
-    private Hashtable ht = new Hashtable();
+    private Hashtable<String, Document> ht = new Hashtable<String, Document>();
     private static ReportManager pm = new ReportManager();
 
     //为Hashtable增加周报月报对象

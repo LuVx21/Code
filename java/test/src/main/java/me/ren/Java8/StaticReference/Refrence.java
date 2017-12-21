@@ -1,6 +1,8 @@
 package me.ren.Java8.StaticReference;
 
-
+/**
+ * 静态引用
+ */
 public class Refrence {
 
     private String name;
