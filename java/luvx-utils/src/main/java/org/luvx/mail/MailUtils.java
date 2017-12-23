@@ -17,8 +17,7 @@ import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
 
 /**
- * 
- * @author itcast 本类只有这么一个方法，用来发邮件！
+ * 本类只有这么一个方法，用来发邮件！
  */
 public class MailUtils {
 	public static Session createSession(String host, final String username, final String password) {

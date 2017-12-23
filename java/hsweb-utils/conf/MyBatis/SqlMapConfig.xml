@@ -31,6 +31,6 @@
 
     <!-- 加载映射文件-->
     <mappers>
-        <mapper resource="cn/itcast/javaee/mybatis/app14/StudentMapper.xml"/>
+        <mapper resource="org/luvx/javaee/mybatis/app14/StudentMapper.xml"/>
     </mappers>
 </configuration>

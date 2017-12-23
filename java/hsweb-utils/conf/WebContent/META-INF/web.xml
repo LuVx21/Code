@@ -1,32 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>springmvc0523</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <!-- spirngMvc前端控制器 -->
-  <servlet>
-  	<servlet-name>spirngMvc0523</servlet-name>
-  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  	
-  	<!-- 如果没有指定springMvc核心配置文件那么默认会去找/WEB-INF/+<servlet-name>中的内容 +   -servlet.xml配置文件 -->
-  	<!-- 指定springMvc核心配置文件位置 -->
-  	<init-param>
-  		<param-name>contextConfigLocation</param-name>
-  		<param-value>classpath:SpringMvc.xml</param-value>
-  	</init-param>
-  	
-  	<!-- tomcat启动的时候就加载这个servlet -->
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>spirngMvc0523</servlet-name>
-  	<url-pattern>*.action</url-pattern>
-  </servlet-mapping>
+	<display-name>springmvc</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+<!-------------------------------------------------------------------------------------------------------->
+	<!-- 监听器，用于加载spring配置文件的，默认加载的位置:/WEB-INF/applicationContext.xml -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 重新指定一下，spring配置文件所在位置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+<!-------------------------------------------------------------------------------------------------------->
+	<!-- spirngMvc前端控制器 -->
+	<servlet>
+		<servlet-name>spirngMvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
+		<!-- 如果没有指定springMvc核心配置文件那么默认会去找/WEB-INF/+<servlet-name>中的内容 + -servlet.xml配置文件 -->
+		<!-- 指定springMvc核心配置文件位置 -->
+		<init-param>
+				<param-name>contextConfigLocation</param-name>
+				<param-value>classpath:SpringMvc.xml</param-value>
+		</init-param>
+
+		<!-- tomcat启动的时候就加载这个servlet -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>spirngMvc</servlet-name>
+		<url-pattern>*.action</url-pattern>
+	</servlet-mapping>
+<!-------------------------------------------------------------------------------------------------------->
+	<!--懒加载   OpenSessionInviewFilter   noSession or session is closed-->
+	<!-- OpenSessionInViwFilter 配置   它一定放在Struts2的核心控制器配置之前 -->
+	<filter>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>sessionFactoryBeanName</param-name>
+			<param-value>sessionFactory</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>openSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+<!-------------------------------------------------------------------------------------------------------->
+	<!--struts2核心控制器-->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+<!-------------------------------------------------------------------------------------------------------->
+	<!-- spring提供了一个过滤器用于解决post乱码问题 -->
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>
