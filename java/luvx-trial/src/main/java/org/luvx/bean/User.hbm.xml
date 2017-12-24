@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <!-- 配置类和表结构的映射 -->
+    <class name="org.luvx.bean.User" table="User">
+        <!-- 配置id
+            name属性，JavaBean的属性
+            column属性，是表结构的字段
+        -->
+        <id name="userid" column="userid">
+            <!-- 主键的生成策略 -->
+            <generator class="native"/>
+        </id>
+
+        <!-- 配置其他的属性 -->
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+    </class>
+
+</hibernate-mapping>

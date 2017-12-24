@@ -11,11 +11,21 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.locales>zh_CN</project.build.locales>
 		<project.build.jdk>1.8</project.build.jdk>
+		<hibernate.version>5.0.7.Final</hibernate.version>
 		<junit.version>4.11</junit.version>
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<log4j.version>1.2.12</log4j.version>
 		<mysql.version>5.1.6</mysql.version>
 	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>${hibernate.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<build>
 		<plugins>
 			<plugin>
@@ -48,6 +58,23 @@
 	</build>
 
 	<dependencies>
+		<!-- hibernate begin -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.1.Final</version>
+		</dependency>
+		<!-- hibernate end -->
 		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
