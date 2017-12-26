@@ -1,4 +1,4 @@
-package org.luvx.hibernate;
+package org.luvx.utils;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

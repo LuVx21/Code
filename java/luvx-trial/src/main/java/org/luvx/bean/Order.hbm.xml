@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <!-- 配置类和表结构的映射 -->
+    <class name="org.luvx.bean.Order" table="Order">
+
+        <id name="orderid" column="orderid">
+            <generator class="native"/>
+        </id>
+
+
+        <many-to-one name="user" class="org.luvx.bean.User" column="userid" cascade="save-update"/>
+
+    </class>
+
+</hibernate-mapping>

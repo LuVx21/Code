@@ -18,6 +18,12 @@
         <!-- 配置其他的属性 -->
         <property name="username" column="username"/>
         <property name="password" column="password"/>
+
+        <!--级联添加删除 -->
+        <set name="orders" cascade="save-update,delete ">
+            <key column="userid"></key>
+            <one-to-many class="org.luvx.bean.Order"></one-to-many>
+        </set>
     </class>
 
 </hibernate-mapping>
