@@ -11,8 +11,15 @@
             <generator class="native"/>
         </id>
 
-
         <many-to-one name="user" class="org.luvx.bean.User" column="userid" cascade="save-update"/>
+
+        <!--多对多-->
+        <!--cascade和inverse不要同时配置在同一方-->
+        <set name="products" table="temp_orders_products" cascade="save-update">
+            <key column="temp_orderid"/>
+            <many-to-many class="org.luvx.bean.Product" column="temp_productid"></many-to-many>
+        </set>
+
 
     </class>
 

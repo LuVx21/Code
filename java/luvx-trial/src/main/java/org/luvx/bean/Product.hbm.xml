@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.luvx.bean.Product" table="Product">
+        <id name="productid" column="productid">
+            <generator class="native"/>
+        </id>
+
+        <property name="productname" column="productname"/>
+
+
+
+        <!--多对多-->
+        <set name="orders" table="temp_orders_products" inverse="true">
+            <key column="temp_productid"/>
+            <many-to-many class="org.luvx.bean.Orders" column="temp_orderid"></many-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>
