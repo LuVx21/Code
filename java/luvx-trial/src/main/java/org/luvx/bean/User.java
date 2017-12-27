@@ -12,7 +12,7 @@ public class User {
     private String username;
     private String password;
     // 需要实例化
-    private Set<Order> orders = new HashSet<Order>();
+    private Set<Orders> orders = new HashSet<Orders>();
 
 
     public Integer getUserid() {
@@ -39,11 +39,11 @@ public class User {
         this.password = password;
     }
 
-    public Set<Order> getOrders() {
+    public Set<Orders> getOrders() {
         return orders;
     }
 
-    public void setOrders(Set<Order> orders) {
+    public void setOrders(Set<Orders> orders) {
         this.orders = orders;
     }
 

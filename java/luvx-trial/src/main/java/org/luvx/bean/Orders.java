@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * 订单
  */
-public class Order {
+public class Orders {
 
     private Integer orderid;
     // 不要实例化
