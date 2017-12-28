@@ -8,9 +8,10 @@ import org.luvx.bean.Product;
 import org.luvx.utils.HibernateUtils;
 
 public class ManytoMany {
-    /**
-     * sessionFactory一被创建,表结构随之被创建
-     */
+/*
+
+    // sessionFactory一被创建,表结构随之被创建
+
     @Test
     public void getsessionTest() {
         HibernateUtils.openSession();
@@ -40,4 +41,5 @@ public class ManytoMany {
 
         ts.commit();
     }
+*/
 }
