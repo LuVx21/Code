@@ -1,21 +1,20 @@
-# Code
+# README.md
 
-## c
+# c
 
-## database
+# database
 
-## doc
+# doc
 
-## java
+# java
 
-## jetbrains
+# leetcode
 
-## leetcode
+# others
 
-## others
+# python
 
-## python
+# shell
 
-## shell
+# web
 
-## web
