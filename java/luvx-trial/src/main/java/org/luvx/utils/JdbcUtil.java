@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+/**
+ * JDBC工具类:使用dbcfg.properties配置文件
+ */
 public class JdbcUtil {
 
     private static String driverClass;
