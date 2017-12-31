@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JdbcUtilTest {
-
+/*
     @Test
     public void run01() throws SQLException {
         Connection conn = JdbcUtil.getConnection();
@@ -20,5 +20,5 @@ public class JdbcUtilTest {
         }
         JdbcUtil.release(rs, stmt, conn);
     }
-
+*/
 }

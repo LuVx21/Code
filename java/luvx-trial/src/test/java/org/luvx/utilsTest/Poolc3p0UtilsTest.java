@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Poolc3p0UtilsTest {
-
+/*
     @Test
     public void run01() throws SQLException {
         Connection conn = Poolc3p0Utils.getConnection();
@@ -20,4 +20,5 @@ public class Poolc3p0UtilsTest {
         }
         Poolc3p0Utils.release(rs, stmt, conn);
     }
+*/
 }

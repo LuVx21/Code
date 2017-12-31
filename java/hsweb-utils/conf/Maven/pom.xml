@@ -75,7 +75,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- 模块式应用中使用 -->	
+		<!-- 模块式应用中使用 -->
 <!--
 		<dependency>
 			<groupId>org.luvx.crm</groupId>
