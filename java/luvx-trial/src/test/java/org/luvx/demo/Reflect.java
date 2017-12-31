@@ -1,4 +1,4 @@
-package org.luvx;
+package org.luvx.demo;
 
 import java.lang.reflect.Field;
 

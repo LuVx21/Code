@@ -1,6 +1,7 @@
-package org.luvx;
+package org.luvx.demo;
 
-import java.util.*;
+import java.util.Enumeration;
+import java.util.Vector;
 
 public class VectorDemo {
 	public static void main(String args[]) {

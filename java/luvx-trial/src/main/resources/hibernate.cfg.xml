@@ -27,6 +27,8 @@
         -->
         <property name="hibernate.hbm2ddl.auto">update</property>
 
+        <property name="hibernate.current_session_context_class">thread</property>
+
         <!-- 映射配置文件，需要引入映射的配置文件 -->
         <mapping resource="org/luvx/bean/User.hbm.xml"/>
         <mapping resource="org/luvx/bean/Orders.hbm.xml"/>

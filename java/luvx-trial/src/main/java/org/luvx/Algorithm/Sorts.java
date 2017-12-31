@@ -1,4 +1,4 @@
-package org.luvx;
+package org.luvx.Algorithm;
 
 import java.util.Arrays;
 
