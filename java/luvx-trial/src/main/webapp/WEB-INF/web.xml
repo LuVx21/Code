@@ -6,6 +6,19 @@
 		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>
     </display-name>
+
+
+    <!-- 监听器，用于加载spring配置文件的，默认加载的位置:/WEB-INF/applicationContext.xml -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!-- 重新指定一下，spring配置文件所在位置 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+
     <!--Struts2前端控制器-->
     <filter>
         <filter-name>struts2</filter-name>
