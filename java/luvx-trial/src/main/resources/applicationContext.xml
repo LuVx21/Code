@@ -23,6 +23,13 @@
         <property name="userDao" ref="userDao"/>
     </bean>
 
+    <!-- 配置C3P0的连接池 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql:///spring_day03"/>
+        <property name="user" value="root"/>
+        <property name="password" value="1121"/>
+    </bean>
 
     <!-- 配置读取外部配置文件 -->
     <!--<context:property-placeholder location="classpath:jdbc.properties" />-->
@@ -43,5 +50,11 @@
 
     <!--&lt;!&ndash; 事务扫描开始(开启@Tranctional) &ndash;&gt;-->
     <!--<tx:annotation-driven transaction-manager="txManager" />-->
+
+
+    <!-- 导入其它配置文件 -->
+    <!--<import resource="classpath:applicationContext-action.xml"/>-->
+    <!--<import resource="classpath:applicationContext-service.xml"/>-->
+    <!--<import resource="classpath:applicationContext-dao.xml"/>-->
 
 </beans>
