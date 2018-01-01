@@ -30,7 +30,7 @@
     </environments>
 
     <!-- 加载映射文件-->
-    <!--<mappers>-->
-    <!--<mapper resource="org/luvx/bean/StudentMapper.xml"/>-->
-    <!--</mappers>-->
+    <mappers>
+        <mapper resource="org/luvx/bean/StudentMapper.xml"/>
+    </mappers>
 </configuration>
