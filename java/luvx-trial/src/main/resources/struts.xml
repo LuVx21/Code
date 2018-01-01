@@ -11,6 +11,8 @@
     <!-- 开发模式,可以打印出更详细的错误信息 -->
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.multipart.maxSize" value="5000000"/>
+    <!-- 设置struts的Action请求的后缀，支持多个时以逗号隔开。 -->
+    <constant name="struts.action.extension" value="do,action" />
     <!-- 加载国际化资源文件的常量配置    value=基名 -->
     <constant name="struts.custom.i18n.resources" value="uploaderror"/>
 
