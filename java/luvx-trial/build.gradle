@@ -57,6 +57,7 @@ exclude(module: 'javassist')
     compile group: 'commons-codec', name: 'commons-codec', version:'1.11'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
     compile group: 'commons-dbcp', name: 'commons-dbcp', version:'1.4'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
     compile group: 'log4j', name: 'log4j', version:'1.2.12'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version:'2.10.0'
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.6.6'
