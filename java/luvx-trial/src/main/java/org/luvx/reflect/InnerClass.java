@@ -4,17 +4,24 @@ public class InnerClass {
 
     private String astrofInner = "a000";
 
-    public class A {
-        private String astrofA = "aaa";
+    public class Apple {
+        private String astrInApple = "aaa";
     }
 
-    public class B {
-        private String astrofB = "bbb";
+    public class Bear {
+        public String astroInBear = "bbb";
     }
 
-    public static class C {
-        private static String astrofC = "ccc1";
-        public String bstrofC = "ccc2";
+    public static class Peach {
+        private static String astrInPeach = "ccc1";
+        public static String bstrInPeach = "ccc2";
+    }
+
+    public static class Watermelon {
+        public String name = "old Watermelon";
+        private String name2 = "small Watermelon";
+        private static String astrInWatermelon = "ccc1";
+        public static String bstrInWatermelon = "ccc2";
     }
 
 
@@ -24,6 +31,4 @@ public class InnerClass {
             System.out.println("no name");
         }
     };
-
-
 }
