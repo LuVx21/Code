@@ -380,6 +380,7 @@
 						<path>/mgr</path>
 						<port>9090</port>
 						<uriEncoding>UTF-8</uriEncoding>
+						<finalName>mgr</finalName>
 						<server>tomcat7</server>
 					</configuration>
 				</plugin>
