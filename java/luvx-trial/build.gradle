@@ -1,5 +1,7 @@
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'maven'
+apply plugin: 'com.bmuschko.tomcat'
 
 group = 'org.luvx'
 version = '1.0.7'
@@ -19,10 +21,16 @@ sourceSets.test.compileClasspath += configurations.providedCompile
 sourceSets.test.runtimeClasspath += configurations.providedCompile
 
 repositories {
-        
+
      maven { url "http://repo.maven.apache.org/maven2" }
 }
 dependencies {
+     def tomcatVersion = '7.0.59'
+
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+
     compile group: 'org.aspectj', name: 'aspectjweaver', version:'1.6.8'
     compile group: 'org.springframework', name: 'spring-aop', version:'4.2.4.RELEASE'
     compile group: 'org.springframework', name: 'spring-context', version:'4.2.4.RELEASE'
@@ -65,4 +73,13 @@ exclude(module: 'javassist')
     testCompile group: 'junit', name: 'junit', version:'4.11'
     providedCompile group: 'javax.servlet', name: 'servlet-api', version:'2.5'
     providedCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.0'
+}
+
+buildscript {
+    repositories {
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.2'
+    }
 }
