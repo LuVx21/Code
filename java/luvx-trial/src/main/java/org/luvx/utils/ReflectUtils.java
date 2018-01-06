@@ -1,6 +1,8 @@
 package org.luvx.utils;
 
+import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
+import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -19,6 +21,7 @@ public class ReflectUtils {
 
     /**
      * 通过构造函数实例化对象
+     * 只能根据有参构造函数实例化
      *
      * @param className      类的全路径名称
      * @param parameterTypes 参数类型
@@ -28,8 +31,7 @@ public class ReflectUtils {
     @SuppressWarnings("rawtypes")
     public static Object constructorNewInstance(String className, Class[] parameterTypes, Object[] initargs) {
         try {
-            Constructor<?> constructor = (Constructor<?>) Class
-                    .forName(className).getDeclaredConstructor(parameterTypes);                     //暴力反射
+            Constructor<?> constructor = (Constructor<?>) Class.forName(className).getDeclaredConstructor(parameterTypes);
             constructor.setAccessible(true);
             return constructor.newInstance(initargs);
         } catch (Exception ex) {
@@ -38,15 +40,15 @@ public class ReflectUtils {
 
     }
 
-
     /**
      * 暴力反射获取字段值
+     * 使用反射自身方法
      *
-     * @param propertyName 属性名
      * @param obj          实例对象
+     * @param propertyName 属性名
      * @return 属性值
      */
-    public static Object getFieldValue(String propertyName, Object obj) {
+    public static Object getFieldValue(Object obj, String propertyName) {
         try {
             Field field = obj.getClass().getDeclaredField(propertyName);
             field.setAccessible(true);
@@ -56,14 +58,16 @@ public class ReflectUtils {
         }
     }
 
+
     /**
      * 暴力反射获取字段值
+     * 使用PropertyDescriptor
      *
-     * @param propertyName 属性名
      * @param object       实例对象
+     * @param propertyName 属性名
      * @return 字段值
      */
-    public static Object getProperty(String propertyName, Object object) {
+    public static Object getProperty(Object object, String propertyName) {
         try {
 
             PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
@@ -71,7 +75,8 @@ public class ReflectUtils {
             return method.invoke(object);
 
             //其它方式
-            /*BeanInfo beanInfo =  Introspector.getBeanInfo(object.getClass());
+            /*
+            BeanInfo beanInfo =  Introspector.getBeanInfo(object.getClass());
             PropertyDescriptor[] pds = beanInfo.getPropertyDescriptors();
             Object retVal = null;
             for(PropertyDescriptor pd : pds){
@@ -82,20 +87,22 @@ public class ReflectUtils {
                     break;
                 }
             }
-            return retVal;*/
+            return retVal;
+            */
         } catch (Exception ex) {
             throw new RuntimeException();
         }
     }
 
     /**
-     * 通过BeanUtils工具包获取反射获取字段值,注意此值是以字符串形式存在的,它支持属性连缀操作:如,.对象.属性
+     * 通过BeanUtils工具包获取反射获取字段值
+     * 注意返回值是以字符串形式存在的,它支持属性连缀操作:如,.对象.属性
      *
      * @param propertyName 属性名
      * @param object       实例对象
      * @return 字段值
      */
-    public static Object getBeanInfoProperty(String propertyName, Object object) {
+    public static Object getBeanInfoProperty(Object object, String propertyName) {
         try {
             return BeanUtils.getProperty(object, propertyName);
         } catch (Exception ex) {
@@ -104,7 +111,24 @@ public class ReflectUtils {
     }
 
     /**
-     * 通过BeanUtils工具包获取反射获取字段值,注意此值是以字符串形式存在的
+     * 通过BeanUtils工具包获取反射获取字段值
+     * 注意此值是以对象属性的实际类型
+     *
+     * @param propertyName 属性名
+     * @param object       实例对象
+     * @return 字段值
+     */
+    public static Object getPropertyUtilByName(Object object, String propertyName) {
+        try {
+            return PropertyUtils.getProperty(object, propertyName);
+        } catch (Exception ex) {
+            throw new RuntimeException();
+        }
+    }
+
+    /**
+     * 通过BeanUtils工具包获取反射设置字段值
+     * 注意此值是以字符串形式存在的
      *
      * @param object       实例对象
      * @param propertyName 属性名
@@ -120,22 +144,8 @@ public class ReflectUtils {
     }
 
     /**
-     * 通过BeanUtils工具包获取反射获取字段值,注意此值是以对象属性的实际类型
-     *
-     * @param propertyName 属性名
-     * @param object       实例对象
-     * @return 字段值
-     */
-    public static Object getPropertyUtilByName(String propertyName, Object object) {
-        try {
-            return PropertyUtils.getProperty(object, propertyName);
-        } catch (Exception ex) {
-            throw new RuntimeException();
-        }
-    }
-
-    /**
-     * 通过BeanUtils工具包获取反射获取字段值,注意此值是以对象属性的实际类型,这是PropertyUtils与BeanUtils的根本区别
+     * 通过BeanUtils工具包获取反射设置字段值
+     * 注意此值是以对象属性的实际类型,这是PropertyUtils与BeanUtils的根本区别
      *
      * @param object       实例对象
      * @param propertyName 属性名
@@ -155,14 +165,17 @@ public class ReflectUtils {
      *
      * @param object       实例对象
      * @param propertyName 属性名
-     * @param value        新的字段值
+     * @param value        新的字段值(实际对象类型)
      * @return
      */
-    public static void setProperties(Object object, String propertyName, Object value) throws IntrospectionException,
-            IllegalAccessException, InvocationTargetException {
-        PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
-        Method methodSet = pd.getWriteMethod();
-        methodSet.invoke(object, value);
+    public static void setProperties(Object object, String propertyName, Object value) {
+        try {
+            PropertyDescriptor pd = new PropertyDescriptor(propertyName, object.getClass());
+            Method methodSet = pd.getWriteMethod();
+            methodSet.invoke(object, value);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 
 
@@ -171,7 +184,7 @@ public class ReflectUtils {
      *
      * @param propertyName 字段名
      * @param obj          实例对象
-     * @param value        新的字段值
+     * @param value        新的字段值(实际对象类型)
      * @return
      */
     public static void setFieldValue(Object obj, String propertyName, Object value) {
@@ -185,7 +198,7 @@ public class ReflectUtils {
     }
 
     /**
-     * 设置字段值
+     * 执行方法
      *
      * @param className      类的全路径名称
      * @param methodName     调用方法名
@@ -206,10 +219,12 @@ public class ReflectUtils {
     }
 
     /**
+     * 比较两个bean的各个属性值是否不同
+     *
      * @param <T>     具体对象
-     * @param fileds  要进行比较Bean对象的属性值集合(以属性值为key,属性注释为value,集合从数据库中取出)
-     * @param oldBean 源对象
-     * @param newBean 新对象
+     * @param fileds  要进行比较Bean对象的属性值集合<属性名,属性描述>
+     * @param oldBean 对象
+     * @param newBean 对象
      * @return 返回二个Bean对象属性值的异同
      */
     public static <T> String compareBeanValue(Map<String, String> fileds, T oldBean, T newBean) {
@@ -219,12 +234,10 @@ public class ReflectUtils {
         Object oldPropertyValue = null;
         Object newPropertyValue = null;
 
-        StringBuilder descrips = new StringBuilder();
         for (Map.Entry<String, String> entity : fileds.entrySet()) {
-            //获取新旧二个对象对应的值
-            propertyName = entity.getKey().toLowerCase();
-            oldPropertyValue = getProperty(propertyName, oldBean);
-            newPropertyValue = getProperty(propertyName, newBean);
+            propertyName = entity.getKey();
+            oldPropertyValue = getProperty(oldBean, propertyName);
+            newPropertyValue = getProperty(newBean, propertyName);
 
             if (null == oldPropertyValue && null == newPropertyValue) {
                 continue;
@@ -242,7 +255,7 @@ public class ReflectUtils {
             if (oldPropertyValue.equals(newPropertyValue)) {
                 continue;
             }
-            compares.append("字段注释: ").append(entity.getValue()).append("】").append("原属性值\"");
+            compares.append("[字段注释: ").append(entity.getValue()).append("]").append("原属性值\"");
             if (StringUtils.isEmpty(oldPropertyValue + "")) {
                 oldPropertyValue = " ";
             }
@@ -250,7 +263,7 @@ public class ReflectUtils {
             if (StringUtils.isEmpty(newPropertyValue + "")) {
                 newPropertyValue = " ";
             }
-            compares.append(newPropertyValue).append("\";");
+            compares.append(newPropertyValue).append("\";\n");
         }
         return compares.toString();
     }

@@ -1,8 +1,28 @@
 package org.luvx.reflect;
 
+
+/**
+ * 反射机制用类
+ */
 public class InnerClass {
 
     private String astrofInner = "a000";
+    private Integer num = 17;
+
+    /**
+     * 无参构造
+     */
+    public InnerClass() {
+
+    }
+
+    /**
+     * 有参构造
+     */
+    public InnerClass(String astrofInner, Integer num) {
+        this.astrofInner = astrofInner;
+        this.num = num;
+    }
 
     public class Apple {
         private String astrInApple = "aaa";
@@ -22,6 +42,27 @@ public class InnerClass {
         private String name2 = "small Watermelon";
         private static String astrInWatermelon = "ccc1";
         public static String bstrInWatermelon = "ccc2";
+    }
+
+    /**
+     * getter&setter
+     *
+     * @return
+     */
+    public String getAstrofInner() {
+        return astrofInner;
+    }
+
+    public void setAstrofInner(String astrofInner) {
+        this.astrofInner = astrofInner;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
 
@@ -63,6 +104,17 @@ public class InnerClass {
      */
     public int add(int a, int b) {
         return a + b;
+    }
+
+    /**
+     * 参数类型不同
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public String strAdd(String a, Integer b) {
+        return a + b.toString();
     }
 
     /**

@@ -15,7 +15,8 @@ public class Log4j2 {
 	private static Logger logger = LogManager.getLogger(Log4j2.class.getName());
 
 	public static boolean hello() {
-		logger.entry(); // trace级别的信息，单独列出来是希望你在某个方法或者程序逻辑开始的时候调用，和logger.trace("entry")基本一个意思
+		// trace级别的信息，单独列出来是希望你在某个方法或者程序逻辑开始的时候调用，和logger.trace("entry")基本一个意思
+		logger.entry();
 
 		logger.trace("trace");
 		logger.debug("debug");
