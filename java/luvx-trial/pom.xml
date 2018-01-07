@@ -304,6 +304,11 @@
             <version>${slf4j.version}</version>
         </dependency>
         <!--Log end-->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>8.5.23</version>
+        </dependency>
     </dependencies>
 
     <!--<profiles>-->
