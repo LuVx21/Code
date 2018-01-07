@@ -8,6 +8,11 @@ import java.lang.annotation.Target;
 
 /**
  * jdbc连接用注解
+ * 可以直接在jdbcutils中配置数据库信息
+ * 不用使用配置文件
+ *
+ * 只是注解的使用demo
+ * 开发中不推荐的链接用法
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)

@@ -10,11 +10,11 @@ public class LogPrinterDecorater extends PrinterDecorater {
     }
 
     public void beforePrint() {
-        System.out.println("打印前操作");
+        System.out.println("打印前操作...");
     }
 
     public void afterPrint() {
-        System.out.println("打印后操作");
+        System.out.println("打印后操作...");
     }
 
     @Override
