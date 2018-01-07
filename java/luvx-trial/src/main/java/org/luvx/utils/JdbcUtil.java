@@ -26,10 +26,10 @@ public class JdbcUtil {
             InputStream in = cl.getResourceAsStream("dbcfg.properties");
             Properties props = new Properties();
             props.load(in);
-            driverClass = props.getProperty("driverClass");
-            url = props.getProperty("url");
-            user = props.getProperty("user");
-            password = props.getProperty("password");
+            driverClass = props.getProperty("mysql.driver");
+            url = props.getProperty("mysql.url");
+            user = props.getProperty("mysql.username");
+            password = props.getProperty("mysql.password");
             in.close();
         } catch (IOException e) {
             throw new ExceptionInInitializerError("获取数据库配置文件信息失败");
