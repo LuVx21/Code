@@ -1,7 +1,6 @@
-package org.luvx.pattern;
+package org.luvx.pattern.Proxy;
 
 import org.junit.Test;
-import org.luvx.pattern.Proxy.PrinterProxy;
 
 public class ProxyTest {
     /**

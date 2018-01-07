@@ -12,6 +12,11 @@ public class PrinterProxy implements Printer {
 
     final LogPrinter logPrinter = new LogPrinter();
 
+    /**
+     * 静态代理
+     * 必须需要代理类的存在,
+     * 当委托类很多时,会存在大量代理类
+     */
     @Override
     public void printlog() {
         printBefore();
@@ -20,9 +25,9 @@ public class PrinterProxy implements Printer {
     }
 
     /**
+     * 动态代理
      * 获取代理对象
-     * 此方法不在代理模式的使用结构中
-     * 使用此方法不需要代理类的存在
+     * 使用此方法不需要代理类必须存在
      *
      * @param methodName 欲增强功能的方法名
      * @return
