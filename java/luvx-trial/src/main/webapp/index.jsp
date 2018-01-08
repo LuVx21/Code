@@ -9,7 +9,7 @@
 <body>
 <h1>LuVx</h1>
 
-<a href="${ pageContext.request.contextPath }/servletdemo">Servlet</a>
+<a href="${ pageContext.request.contextPath }/helloservlet">Servlet</a>
 <a href="${ pageContext.request.contextPath }/hello.action">Struts2</a>
 </body>
 </html>

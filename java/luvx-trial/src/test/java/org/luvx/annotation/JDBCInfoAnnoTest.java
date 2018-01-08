@@ -1,11 +1,13 @@
 package org.luvx.annotation;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+@Ignore
 public class JDBCInfoAnnoTest {
 
     @JDBCInfoAnno(url = "jdbc:mysql://localhost:3306/java", password = "1121")
