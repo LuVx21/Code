@@ -6,6 +6,10 @@ import javax.servlet.http.HttpSessionBindingListener;
 
 /**
  * 绑定和解绑
+ * jsp:
+ * <%session.setAttribute("p", new Person(1,"LuVx")); %>
+ * ${p2.name }
+ * <%session.removeAttribute("p");%>
  */
 @WebListener
 public class SessionBindingListener implements HttpSessionBindingListener {

@@ -14,6 +14,13 @@ public class SessionListener implements HttpSessionListener {
         System.out.println("session 创建了...........");
     }
 
+    /**
+     * 销毁
+     * JSP:
+     * <% session.invalidate(); %>
+     *
+     * @param se
+     */
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         System.out.println("session 销毁了~~~~~~~~");

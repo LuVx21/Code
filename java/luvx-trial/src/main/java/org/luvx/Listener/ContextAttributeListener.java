@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebListener;
 
 /**
  * 监听ServletContext对象属性的添加,删除等
+ * jsp:
+ * <% application.setAttribute("username", "LuVx"); %>
+ * <% application.setAttribute("username", "LuVx1"); %>
+ * <% application.removeAttribute("username"); %>
  */
 @WebListener()
 public class ContextAttributeListener implements ServletContextAttributeListener {
