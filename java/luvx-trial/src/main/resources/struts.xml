@@ -12,14 +12,25 @@
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.multipart.maxSize" value="5000000"/>
     <!-- 设置struts的Action请求的后缀，支持多个时以逗号隔开。 -->
-    <constant name="struts.action.extension" value="do,action" />
+    <constant name="struts.action.extension" value="do,action"/>
     <!-- 加载国际化资源文件的常量配置    value=基名 -->
     <constant name="struts.custom.i18n.resources" value="uploaderror"/>
 
     <package name="default" namespace="/" extends="struts-default">
 
+        <!--配置自定义拦截器-->
+        <interceptors>
+            <interceptor name="HelloInterceptor" class="org.luvx.Interceptor.HelloInterceptor"/>
+            <!-- 定义拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="HelloInterceptor"/>
+                <!-- 自定义拦截器栈后,需配置调用默认栈 -->
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
         <!-- 配置action -->
         <action name="hello" class="org.luvx.action.HelloAction" method="sayHello">
+            <interceptor-ref name="myStack"/>
         </action>
     </package>
 
