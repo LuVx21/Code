@@ -26,7 +26,7 @@
     <!-- 配置C3P0的连接池 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql:///spring_day03"/>
+        <property name="jdbcUrl" value="jdbc:mysql:///java"/>
         <property name="user" value="root"/>
         <property name="password" value="1121"/>
     </bean>
