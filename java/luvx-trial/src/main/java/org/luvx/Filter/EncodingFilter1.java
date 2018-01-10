@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 动态代理方式实现统一编码过滤器
+ * 继承方式 动态带来存在问题
  */
 @WebFilter(filterName = "EncodingFilter1", urlPatterns = "/*")
 public class EncodingFilter1 implements Filter {
@@ -28,6 +29,7 @@ public class EncodingFilter1 implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
             throws IOException, ServletException {
+/*
         //1.强转
         final HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
@@ -53,8 +55,10 @@ public class EncodingFilter1 implements Filter {
             }
         });
 
-        //2.放行
+        // 放行
         chain.doFilter(requestProxy, response);
+*/
+        chain.doFilter(req, resp);
     }
 
     @Override
