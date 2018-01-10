@@ -13,6 +13,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 文件上传
+ * 直接上传到指定目录,没有重命名
+ * 存在文件名重复和查找困难的不足
+ * servlet3
+ */
 @WebServlet(urlPatterns = "/fileupload")
 @MultipartConfig
 public class FileUploadServlet extends HttpServlet {
@@ -24,9 +30,10 @@ public class FileUploadServlet extends HttpServlet {
 
         String dis = part.getHeader("Content-Disposition");
         String s = dis.substring(dis.indexOf("filename=") + 10, dis.length() - 1);
+        s = this.getServletContext().getRealPath("/upload/" + s);
 
         InputStream is = part.getInputStream();
-        FileOutputStream os = new FileOutputStream("/Users/renxie/temp/" + s);
+        FileOutputStream os = new FileOutputStream(s);
 
         IOUtils.copy(is, os);
 

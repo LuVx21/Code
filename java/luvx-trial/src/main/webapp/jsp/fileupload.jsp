@@ -4,9 +4,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>文件上传</title>
 </head>
 <body>
+文件上传:
+<hr/>
     <form action="/luvx-trial/fileupload" method="post" enctype="multipart/form-data">
         用户名:<input name="username"><br/>
         图片:<input type="file" name="f"><br/>

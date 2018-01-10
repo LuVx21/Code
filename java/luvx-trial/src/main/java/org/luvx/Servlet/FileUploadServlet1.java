@@ -15,6 +15,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 文件上传
+ * 随机的文件夹和文件名
+ * 更适合实际
+ */
 @WebServlet(urlPatterns = "/fileupload1")
 @MultipartConfig
 public class FileUploadServlet1 extends HttpServlet {
