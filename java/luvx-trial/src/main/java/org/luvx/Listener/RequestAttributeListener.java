@@ -10,17 +10,17 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class RequestAttributeListener implements ServletRequestAttributeListener {
     @Override
-    public void attributeAdded(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-
+    public void attributeAdded(ServletRequestAttributeEvent srab) {
+        System.out.println("LuVx:ServletRequestAttributeListener:add Attribute:" + srab.getName());
     }
 
     @Override
-    public void attributeRemoved(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-
+    public void attributeRemoved(ServletRequestAttributeEvent srab) {
+         System.out.println("LuVx:ServletRequestAttributeListener:remove Attribute:" + srab.getName());
     }
 
     @Override
-    public void attributeReplaced(ServletRequestAttributeEvent servletRequestAttributeEvent) {
-
+    public void attributeReplaced(ServletRequestAttributeEvent srab) {
+        System.out.println("LuVx:ServletRequestAttributeListener:replace Attribute:" + srab.getName());
     }
 }

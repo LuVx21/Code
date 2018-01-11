@@ -16,20 +16,20 @@ public class ContextAttributeListener implements ServletContextAttributeListener
     @Override
     //添加
     public void attributeAdded(ServletContextAttributeEvent scab) {
-        System.out.println("在serveltcontext中添加了一个属性,属性为:" + scab.getName());
+        System.out.println("LuVx:ServletContextAttributeListener:添加了一个属性,属性为:" + scab.getName());
     }
 
     @Override
     //替换
     public void attributeReplaced(ServletContextAttributeEvent scab) {
-        System.out.println("在serveltcontext中替换了一个属性,属性为:" + scab.getName());
+        System.out.println("LuVx:ServletContextAttributeListener:替换了一个属性,属性为:" + scab.getName());
 
     }
 
     @Override
     //移除
     public void attributeRemoved(ServletContextAttributeEvent scab) {
-        System.out.println("在serveltcontext中移除了一个属性,属性为:" + scab.getName());
+        System.out.println("LuVx:ServletContextAttributeListener:移除了一个属性,属性为:" + scab.getName());
 
     }
 }

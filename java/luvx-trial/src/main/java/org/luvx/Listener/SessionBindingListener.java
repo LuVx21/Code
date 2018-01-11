@@ -14,12 +14,12 @@ import javax.servlet.http.HttpSessionBindingListener;
 @WebListener
 public class SessionBindingListener implements HttpSessionBindingListener {
     @Override
-    public void valueBound(HttpSessionBindingEvent httpSessionBindingEvent) {
-
+    public void valueBound(HttpSessionBindingEvent hsbe) {
+        System.out.println("LuVx:HttpSessionBindingListener:Bound Session:" + hsbe.getName());
     }
 
     @Override
-    public void valueUnbound(HttpSessionBindingEvent httpSessionBindingEvent) {
-
+    public void valueUnbound(HttpSessionBindingEvent hsbe) {
+        System.out.println("LuVx:HttpSessionBindingListener:Unbound Session:" + hsbe.getName());
     }
 }

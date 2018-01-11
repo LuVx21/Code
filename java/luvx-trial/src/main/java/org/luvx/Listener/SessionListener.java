@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSessionListener;
 public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        System.out.println("session 创建了...........");
+        System.out.println("LuVx:HttpSessionListener:创建");
     }
 
     /**
@@ -23,6 +23,6 @@ public class SessionListener implements HttpSessionListener {
      */
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        System.out.println("session 销毁了~~~~~~~~");
+        System.out.println("LuVx:HttpSessionListener:销毁");
     }
 }

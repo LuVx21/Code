@@ -20,7 +20,7 @@ public class ContextListener implements ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        System.out.println("servletcontext创建了");
+        System.out.println("LuVx:ServletContextListener:servletcontext Init");
     }
 
     /**
@@ -30,6 +30,6 @@ public class ContextListener implements ServletContextListener {
      */
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        System.out.println("servletcontext销毁了.");
+        System.out.println("LuVx:ServletContextListener:servletcontext Destory");
     }
 }

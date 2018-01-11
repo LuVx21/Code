@@ -10,12 +10,12 @@ import javax.servlet.http.HttpSessionEvent;
 @WebListener
 public class SessionActivationListener implements HttpSessionActivationListener {
     @Override
-    public void sessionWillPassivate(HttpSessionEvent httpSessionEvent) {
-
+    public void sessionWillPassivate(HttpSessionEvent hse) {
+        System.out.println("LuVx:HttpSessionActivationListener:Passivate Attribute:" + hse.getName());
     }
 
     @Override
-    public void sessionDidActivate(HttpSessionEvent httpSessionEvent) {
-
+    public void sessionDidActivate(HttpSessionEvent hse) {
+        System.out.println("LuVx:HttpSessionActivationListener:Activate Attribute:" + hse.getName());
     }
 }

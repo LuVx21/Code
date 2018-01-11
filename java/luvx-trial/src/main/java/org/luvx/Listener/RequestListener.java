@@ -12,12 +12,12 @@ public class RequestListener implements ServletRequestListener {
 
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
-        System.out.println("请求创建了~~~");
+        System.out.println("LuVx:ServletRequestListener:请求创建了");
     }
 
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
-        System.out.println("请求已销毁~~~");
+        System.out.println("LuVx:ServletRequestListener:请求已销毁");
     }
 
 }
