@@ -41,6 +41,10 @@
 
     <!-- 配置Mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 会话工厂 -->
+        <property name="sqlSessionFactory" value="sqlSessionFactory"></property>
+
+        <!-- 扫描包路径   多个包中间使用半角逗号分隔 -->
         <property name="basePackage" value="org.luvx.dao"/>
     </bean>
 
