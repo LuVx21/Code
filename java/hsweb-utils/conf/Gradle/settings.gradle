@@ -1,4 +1,0 @@
-rootProject.name = 'gradle_modules'
-
-include 'core'
-include 'web'
